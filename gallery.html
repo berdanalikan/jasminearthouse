@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery - Jasmine Art House</title>
+    <title>Galeri - Jasmine Art House</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -34,6 +36,11 @@
                 <li><a href="studio.html" data-translate="nav-studio">Stüdyo</a></li>
                 <li><a href="contact.html" data-translate="nav-contact">İletişim</a></li>
             </ul>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
 
         </div>
     </nav>
@@ -66,7 +73,7 @@
                 <!-- Renaissance Period -->
                 <div class="gallery-item-extended" data-category="renaissance">
                     <div class="artwork-image">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/687px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg" alt="Mona Lisa" class="artwork-img">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/687px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg" alt="Mona Lisa" class="artwork-img" loading="lazy">
                     </div>
                     <div class="artwork-info-extended">
                         <h3>Mona Lisa</h3>
@@ -85,7 +92,7 @@
 
                 <div class="gallery-item-extended" data-category="renaissance">
                     <div class="artwork-image">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/1665_Girl_with_a_Pearl_Earring.jpg/800px-1665_Girl_with_a_Pearl_Earring.jpg" alt="Girl with a Pearl Earring" class="artwork-img">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/1665_Girl_with_a_Pearl_Earring.jpg/800px-1665_Girl_with_a_Pearl_Earring.jpg" alt="Girl with a Pearl Earring" class="artwork-img" loading="lazy">
                     </div>
                     <div class="artwork-info-extended">
                         <h3>Girl with a Pearl Earring</h3>
@@ -105,7 +112,7 @@
                 <!-- Impressionism Period -->
                 <div class="gallery-item-extended" data-category="impressionism">
                     <div class="artwork-image">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Monet_-_Impression%2C_Sunrise.jpg/1280px-Monet_-_Impression%2C_Sunrise.jpg" alt="Impression, Sunrise" class="artwork-img">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Monet_-_Impression%2C_Sunrise.jpg/1280px-Monet_-_Impression%2C_Sunrise.jpg" alt="Impression, Sunrise" class="artwork-img" loading="lazy">
                     </div>
                     <div class="artwork-info-extended">
                         <h3>Impression, Sunrise</h3>
@@ -124,7 +131,7 @@
 
                 <div class="gallery-item-extended" data-category="impressionism">
                     <div class="artwork-image">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Edouard_Manet_-_Luncheon_on_the_Grass_-_Google_Art_Project.jpg/1280px-Edouard_Manet_-_Luncheon_on_the_Grass_-_Google_Art_Project.jpg" alt="Luncheon on the Grass" class="artwork-img">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Edouard_Manet_-_Luncheon_on_the_Grass_-_Google_Art_Project.jpg/1280px-Edouard_Manet_-_Luncheon_on_the_Grass_-_Google_Art_Project.jpg" alt="Luncheon on the Grass" class="artwork-img" loading="lazy">
                     </div>
                     <div class="artwork-info-extended">
                         <h3>Luncheon on the Grass</h3>
@@ -137,14 +144,14 @@
                             <span class="period">Impressionism</span>
                             <span class="location">Musée d'Orsay, Paris</span>
                         </div>
-                        <a href="artwork-detail.html?artwork=luncheon-grass" class="view-artwork-btn">View Artwork</a>
+                        <a href="artwork-detail.html?artwork=luncheon-grass" class="view-artwork-btn">Eseri Görüntüle</a>
                     </div>
                 </div>
 
                 <!-- Post-Impressionism Period -->
                 <div class="gallery-item-extended" data-category="post-impressionism">
                     <div class="artwork-image">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1280px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg" alt="The Starry Night" class="artwork-img">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1280px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg" alt="The Starry Night" class="artwork-img" loading="lazy">
                     </div>
                     <div class="artwork-info-extended">
                         <h3>The Starry Night</h3>
@@ -157,13 +164,13 @@
                             <span class="period">Post-Impressionism</span>
                             <span class="location">Museum of Modern Art, New York</span>
                         </div>
-                        <a href="artwork-detail.html?artwork=starry-night" class="view-artwork-btn">View Artwork</a>
+                        <a href="artwork-detail.html?artwork=starry-night" class="view-artwork-btn">Eseri Görüntüle</a>
                     </div>
                 </div>
 
                 <div class="gallery-item-extended" data-category="post-impressionism">
                     <div class="artwork-image">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Vincent_van_Gogh_-_Self-Portrait_-_Google_Art_Project_%28454045%29.jpg/800px-Vincent_van_Gogh_-_Self-Portrait_-_Google_Art_Project_%28454045%29.jpg" alt="Self-Portrait" class="artwork-img">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Vincent_van_Gogh_-_Self-Portrait_-_Google_Art_Project_%28454045%29.jpg/800px-Vincent_van_Gogh_-_Self-Portrait_-_Google_Art_Project_%28454045%29.jpg" alt="Self-Portrait" class="artwork-img" loading="lazy">
                     </div>
                     <div class="artwork-info-extended">
                         <h3>Self-Portrait</h3>
@@ -176,14 +183,14 @@
                             <span class="period">Post-Impressionism</span>
                             <span class="location">Musée d'Orsay, Paris</span>
                         </div>
-                        <a href="artwork-detail.html?artwork=self-portrait" class="view-artwork-btn">View Artwork</a>
+                        <a href="artwork-detail.html?artwork=self-portrait" class="view-artwork-btn">Eseri Görüntüle</a>
                     </div>
                 </div>
 
                 <!-- Modern Period -->
                 <div class="gallery-item-extended" data-category="modern">
                     <div class="artwork-image">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Edvard_Munch%2C_1893%2C_The_Scream%2C_oil%2C_tempera_and_pastel_on_cardboard%2C_91_x_73_cm%2C_National_Gallery_of_Norway.jpg/800px-Edvard_Munch%2C_1893%2C_The_Scream%2C_oil%2C_tempera_and_pastel_on_cardboard%2C_91_x_73_cm%2C_National_Gallery_of_Norway.jpg" alt="The Scream" class="artwork-img">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Edvard_Munch%2C_1893%2C_The_Scream%2C_oil%2C_tempera_and_pastel_on_cardboard%2C_91_x_73_cm%2C_National_Gallery_of_Norway.jpg/800px-Edvard_Munch%2C_1893%2C_The_Scream%2C_oil%2C_tempera_and_pastel_on_cardboard%2C_91_x_73_cm%2C_National_Gallery_of_Norway.jpg" alt="The Scream" class="artwork-img" loading="lazy">
                     </div>
                     <div class="artwork-info-extended">
                         <h3>The Scream</h3>
@@ -196,13 +203,13 @@
                             <span class="period">Expressionism</span>
                             <span class="location">National Gallery, Oslo</span>
                         </div>
-                        <a href="artwork-detail.html?artwork=scream" class="view-artwork-btn">View Artwork</a>
+                        <a href="artwork-detail.html?artwork=scream" class="view-artwork-btn">Eseri Görüntüle</a>
                     </div>
                 </div>
 
                 <div class="gallery-item-extended" data-category="modern">
                     <div class="artwork-image">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Amadeo_Souza-Cardoso_-_Cabe%C3%A7a_%28Head%29.jpg/800px-Amadeo_Souza-Cardoso_-_Cabe%C3%A7a_%28Head%29.jpg" alt="Head" class="artwork-img">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Amadeo_Souza-Cardoso_-_Cabe%C3%A7a_%28Head%29.jpg/800px-Amadeo_Souza-Cardoso_-_Cabe%C3%A7a_%28Head%29.jpg" alt="Head" class="artwork-img" loading="lazy">
                     </div>
                     <div class="artwork-info-extended">
                         <h3>Head</h3>
@@ -215,7 +222,7 @@
                             <span class="period">Modernism</span>
                             <span class="location">Museu Nacional de Arte Contemporânea, Lisbon</span>
                         </div>
-                        <a href="artwork-detail.html?artwork=head" class="view-artwork-btn">View Artwork</a>
+                        <a href="artwork-detail.html?artwork=head" class="view-artwork-btn">Eseri Görüntüle</a>
                     </div>
                 </div>
             </div>
@@ -226,19 +233,19 @@
     <section class="gallery-info">
         <div class="container">
             <div class="info-content">
-                <h2 class="section-title">About Our <span class="highlight">Collection</span></h2>
+                <h2 class="section-title">Koleksiyonumuz <span class="highlight">Hakkında</span></h2>
                 <div class="info-grid">
                     <div class="info-item">
-                        <h3>Curatorial Approach</h3>
-                        <p>Our collection is carefully curated to represent the evolution of artistic expression across different periods and movements. Each piece has been selected for its historical significance, artistic merit, and ability to tell a compelling story.</p>
+                        <h3>Küratörlük Yaklaşımı</h3>
+                        <p>Koleksiyonumuz, farklı dönemler ve akımlar boyunca sanatsal ifadenin evrimini temsil etmek için özenle küratörlüğü yapılmıştır. Her parça, tarihi önemi, sanatsal değeri ve etkileyici bir hikaye anlatma yeteneği için seçilmiştir.</p>
                     </div>
                     <div class="info-item">
-                        <h3>Conservation</h3>
-                        <p>We maintain the highest standards of conservation to ensure that these masterpieces are preserved for future generations. Our team of conservators works tirelessly to maintain the integrity of each artwork.</p>
+                        <h3>Koruma</h3>
+                        <p>Bu başyapıtların gelecek nesiller için korunmasını sağlamak için en yüksek koruma standartlarını sürdürüyoruz. Konservatör ekibimiz, her sanat eserinin bütünlüğünü korumak için durmaksızın çalışıyor.</p>
                     </div>
                     <div class="info-item">
-                        <h3>Accessibility</h3>
-                        <p>We believe that art should be accessible to everyone. Our gallery is designed to provide an intimate viewing experience, allowing visitors to connect with each piece on a personal level.</p>
+                        <h3>Erişilebilirlik</h3>
+                        <p>Sanatın herkes için erişilebilir olması gerektiğine inanıyoruz. Galerimiz, ziyaretçilerin her parça ile kişisel bir düzeyde bağlantı kurmasına olanak tanıyan samimi bir görüntüleme deneyimi sağlamak için tasarlanmıştır.</p>
                     </div>
                 </div>
             </div>
@@ -249,16 +256,16 @@
     <section id="contact" class="contact">
         <div class="container">
             <div class="contact-content">
-                <h2>Visit Our Gallery</h2>
-                <p>Experience these masterpieces in person. Our gallery is open to the public and offers guided tours, educational programs, and special exhibitions throughout the year.</p>
+                <h2>Galerimizi Ziyaret Edin</h2>
+                <p>Bu başyapıtları kişisel olarak deneyimleyin. Galerimiz halka açıktır ve yıl boyunca rehberli turlar, eğitim programları ve özel sergiler sunar.</p>
                 <div class="contact-info">
                     <div class="contact-item">
-                        <h3>Gallery Hours</h3>
-                        <p>Tuesday - Sunday: 10:00 AM - 6:00 PM<br>Monday: Closed</p>
+                        <h3>Galeri Çalışma Saatleri</h3>
+                        <p>Salı - Pazar: 10:00 - 18:00<br>Pazartesi: Kapalı</p>
                     </div>
                     <div class="contact-item">
-                        <h3>Location</h3>
-                        <p>123 Art Heritage Lane<br>Cultural District<br>City, State 12345</p>
+                        <h3>Konum</h3>
+                        <p>123 Sanat Mirası Caddesi<br>Kültür Mahallesi<br>Şehir, İl 12345</p>
                     </div>
                 </div>
             </div>
@@ -271,21 +278,21 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Jasmine Art House</h3>
-                    <p data-translate="footer-collecting">Collecting Arts since ©2010</p>
+                    <p data-translate="footer-collecting">2010'dan Beri Sanat Topluyoruz</p>
                 </div>
                 <div class="footer-section">
-                    <h4 data-translate="footer-navigation">Navigation</h4>
+                    <h4 data-translate="footer-navigation">Navigasyon</h4>
                     <ul>
-                        <li><a href="index.html" data-translate="nav-home">Home</a></li>
-                        <li><a href="about.html" data-translate="nav-about">About</a></li>
-                        <li><a href="gallery.html" data-translate="nav-gallery">Gallery</a></li>
-                        <li><a href="contact.html" data-translate="nav-contact">Contact</a></li>
+                        <li><a href="index.html" data-translate="nav-home">Ana Sayfa</a></li>
+                        <li><a href="about.html" data-translate="nav-about">Hakkımızda</a></li>
+                        <li><a href="gallery.html" data-translate="nav-gallery">Galeri</a></li>
+                        <li><a href="contact.html" data-translate="nav-contact">İletişim</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p data-translate="footer-rights">&copy;25 Jasmine Art House – All rights reserved</p>
-                <p data-translate="footer-essence">THE ESSENCE OF HERITAGE IN ART</p>
+                <p data-translate="footer-rights">&copy; 2025 Jasmine Art House – Tüm Hakları Saklıdır</p>
+                <p data-translate="footer-essence">SANATTA MİRASIN ÖZÜ</p>
             </div>
         </div>
     </footer>

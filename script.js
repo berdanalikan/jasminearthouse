@@ -120,55 +120,50 @@ document.addEventListener('DOMContentLoaded', function() {
         revealObserver.observe(el);
     });
 
-    // Light beam scroll interaction
-    const verticalLightBeam = document.querySelector('.vertical-light-beam');
+    // Enhanced circular light beam - embedded in page, completely static
+    const circularLightBeam = document.querySelector('.circular-light-beam');
     const lightParticles = document.querySelectorAll('.light-particle');
     
-    window.addEventListener('scroll', function() {
-        const scrolled = window.pageYOffset;
-        const windowHeight = window.innerHeight;
-        const documentHeight = document.documentElement.scrollHeight;
-        const scrollProgress = scrolled / (documentHeight - windowHeight);
-        
-        // Adjust beam intensity and width based on scroll
-        const intensity = 0.08 + (scrollProgress * 0.12);
-        const width = 80 + (scrollProgress * 40);
-        const blur = 3 - (scrollProgress * 1);
-        
-        verticalLightBeam.style.opacity = intensity;
-        verticalLightBeam.style.width = `${width}px`;
-        verticalLightBeam.style.filter = `blur(${blur}px)`;
-        
-        // Adjust particle movement based on scroll
-        lightParticles.forEach((particle, index) => {
-            const moveX = (scrolled * 0.05) + (index * 5);
-            const moveY = (scrolled * 0.02) + (index * 3);
-            particle.style.transform = `translate(${moveX}px, ${moveY}px)`;
-        });
+    // Set initial position - embedded in page
+    circularLightBeam.style.transform = 'translate(-50%, -50%)';
+    
+    // Set position based on screen size
+    if (window.innerWidth <= 768) {
+        // Mobile: above "Sanatta Miras" text
+        circularLightBeam.style.left = '50%';
+        circularLightBeam.style.top = window.innerWidth <= 480 ? '20%' : '25%';
+    } else {
+        // Desktop: to the left of "Sanatta Miras" text
+        circularLightBeam.style.left = '35%';
+        circularLightBeam.style.top = '50%';
+    }
+    
+    circularLightBeam.style.opacity = '0.8';
+    circularLightBeam.style.visibility = 'visible';
+    
+    // Keep particles completely stationary
+    lightParticles.forEach((particle) => {
+        particle.style.transform = 'translate(0, 0)';
+        particle.style.opacity = '1';
     });
     
-    // Mouse interaction with light beam
-    document.addEventListener('mousemove', function(e) {
-        const mouseX = e.clientX / window.innerWidth;
-        const mouseY = e.clientY / window.innerHeight;
-        
-        // Move beam slightly with mouse
-        const offsetX = (mouseX - 0.5) * 15;
-        verticalLightBeam.style.transform = `translateX(calc(-50% + ${offsetX}px))`;
-        
-        // Adjust beam intensity based on mouse position
-        const distanceFromCenter = Math.abs(mouseX - 0.5);
-        const intensity = 0.15 - (distanceFromCenter * 0.08);
-        verticalLightBeam.style.opacity = intensity;
-        
-        // Move particles with mouse
-        lightParticles.forEach((particle, index) => {
-            const speed = 0.01 + (index * 0.002);
-            const x = (e.clientX * speed);
-            const y = (e.clientY * speed);
-            particle.style.transform = `translate(${x}px, ${y}px)`;
-        });
+    // No scroll event listener - light beam is embedded in page
+    
+    // Update position on window resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth <= 768) {
+            // Mobile: above "Sanatta Miras" text
+            circularLightBeam.style.left = '50%';
+            circularLightBeam.style.top = window.innerWidth <= 480 ? '20%' : '25%';
+        } else {
+            // Desktop: to the left of "Sanatta Miras" text
+            circularLightBeam.style.left = '35%';
+            circularLightBeam.style.top = '50%';
+        }
     });
+    
+    // Light beam stays completely fixed - no mouse interaction
+    // Removed mouse movement effects to keep light beam stationary
 
     // Add CSS for navbar scroll effect and light beam enhancements
     const style = document.createElement('style');
@@ -212,7 +207,7 @@ window.addEventListener('scroll', throttle(function() {
     // Scroll-based animations can go here
 }, 16)); // 60fps
 
-// Image Lazy Loading
+// Image Lazy Loading with Mobile Optimizations
 function initLazyLoading() {
     const images = document.querySelectorAll('.artwork-img');
     
@@ -220,13 +215,24 @@ function initLazyLoading() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const img = entry.target;
+                
+                // Add loaded class for mobile loading skeleton
+                img.classList.add('loaded');
                 img.style.opacity = '1';
+                
                 observer.unobserve(img);
             }
         });
     });
     
     images.forEach(img => {
+        // Preload images on mobile for better performance
+        if (window.innerWidth <= 768) {
+            img.addEventListener('load', function() {
+                this.classList.add('loaded');
+            });
+        }
+        
         imageObserver.observe(img);
     });
 }
@@ -342,8 +348,282 @@ let currentLanguage = 'tr';
 
 // Initialize page functionality
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize lazy loading
-    initLazyLoading();
+    // Initialize enhanced lazy loading
+    initEnhancedLazyLoading();
+    
+    // Initialize mobile menu
+    initMobileMenu();
+    
+    // Initialize mobile optimizations
+    initMobileOptimizations();
+    
+    // Initialize scroll optimizations
+    initScrollOptimizations();
+    
+    // Initialize touch feedback
+    initTouchFeedback();
+    
+    // Add mobile-specific event listeners
+    if (window.innerWidth <= 768) {
+        // Optimize performance on mobile
+        document.addEventListener('touchstart', function() {}, {passive: true});
+        document.addEventListener('touchmove', function() {}, {passive: true});
+        
+        // Add pull-to-refresh prevention
+        let startY = 0;
+        document.addEventListener('touchstart', (e) => {
+            startY = e.touches[0].pageY;
+        });
+        
+        document.addEventListener('touchmove', (e) => {
+            const y = e.touches[0].pageY;
+            const pull = y - startY;
+            
+            if (pull > 0 && window.scrollY === 0) {
+                e.preventDefault();
+            }
+        }, {passive: false});
+    }
 });
+
+// Enhanced Mobile Menu Functionality
+function initMobileMenu() {
+    const mobileToggle = document.querySelector('.mobile-menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const body = document.body;
+    
+    if (mobileToggle && navMenu) {
+        mobileToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            mobileToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            
+            // Prevent body scroll when menu is open
+            if (navMenu.classList.contains('active')) {
+                body.style.overflow = 'hidden';
+            } else {
+                body.style.overflow = '';
+            }
+        });
+        
+        // Close menu when clicking on a link with smooth transition
+        navMenu.querySelectorAll('a').forEach((link, index) => {
+            link.addEventListener('click', () => {
+                // Add delay for smooth animation
+                setTimeout(() => {
+                    mobileToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    body.style.overflow = '';
+                }, 300);
+            });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                mobileToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                body.style.overflow = '';
+            }
+        });
+        
+        // Close menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                mobileToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                body.style.overflow = '';
+            }
+        });
+        
+        // Handle swipe to close menu
+        let startX = 0;
+        let currentX = 0;
+        
+        navMenu.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        });
+        
+        navMenu.addEventListener('touchmove', (e) => {
+            currentX = e.touches[0].clientX;
+        });
+        
+        navMenu.addEventListener('touchend', () => {
+            const diffX = startX - currentX;
+            if (diffX > 50) { // Swipe left to close
+                mobileToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                body.style.overflow = '';
+            }
+        });
+    }
+}
+
+// Enhanced Mobile Performance Optimizations
+function initMobileOptimizations() {
+    // Reduce animations on mobile for better performance
+    if (window.innerWidth <= 768) {
+        // Disable heavy animations
+        const heavyAnimations = document.querySelectorAll('.floating-artworks .artwork-item, .scattered-artworks .artwork-item');
+        heavyAnimations.forEach(item => {
+            item.style.animation = 'none';
+        });
+        
+        // Optimize scroll performance
+        let ticking = false;
+        function updateScroll() {
+            ticking = false;
+        }
+        
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(updateScroll);
+                ticking = true;
+            }
+        });
+        
+        // Optimize touch interactions
+        const touchElements = document.querySelectorAll('.gallery-item, .oil-painting-item, .studio-photo-item');
+        touchElements.forEach(element => {
+            element.addEventListener('touchstart', function() {
+                this.style.transform = 'scale(0.98)';
+            });
+            
+            element.addEventListener('touchend', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+    }
+}
+
+// Enhanced Image Loading with Mobile Optimizations
+function initEnhancedLazyLoading() {
+    const images = document.querySelectorAll('.artwork-img');
+    
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                
+                // Add loading skeleton
+                const imageContainer = img.closest('.artwork-image');
+                if (imageContainer) {
+                    imageContainer.classList.add('loading');
+                }
+                
+                // Load image with error handling
+                img.addEventListener('load', function() {
+                    this.classList.add('loaded');
+                    this.style.opacity = '1';
+                    
+                    if (imageContainer) {
+                        imageContainer.classList.remove('loading');
+                    }
+                });
+                
+                img.addEventListener('error', function() {
+                    // Show placeholder on error
+                    this.style.display = 'none';
+                    const placeholder = document.createElement('div');
+                    placeholder.className = 'image-placeholder';
+                    placeholder.style.cssText = `
+                        width: 100%;
+                        height: 100%;
+                        background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: #999;
+                        font-size: 0.9rem;
+                    `;
+                    placeholder.textContent = 'Image not available';
+                    this.parentNode.appendChild(placeholder);
+                });
+                
+                observer.unobserve(img);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '50px 0px'
+    });
+    
+    images.forEach(img => {
+        imageObserver.observe(img);
+    });
+}
+
+// Mobile Scroll Performance Optimization
+function initScrollOptimizations() {
+    if (window.innerWidth <= 768) {
+        // Optimize horizontal scroll for oil paintings
+        const oilPaintingsGrid = document.querySelector('.oil-paintings-grid');
+        if (oilPaintingsGrid) {
+            let isScrolling = false;
+            let startX = 0;
+            let scrollLeft = 0;
+            
+            oilPaintingsGrid.addEventListener('touchstart', (e) => {
+                isScrolling = true;
+                startX = e.touches[0].pageX - oilPaintingsGrid.offsetLeft;
+                scrollLeft = oilPaintingsGrid.scrollLeft;
+            });
+            
+            oilPaintingsGrid.addEventListener('touchmove', (e) => {
+                if (!isScrolling) return;
+                e.preventDefault();
+                const x = e.touches[0].pageX - oilPaintingsGrid.offsetLeft;
+                const walk = (x - startX) * 2;
+                oilPaintingsGrid.scrollLeft = scrollLeft - walk;
+            });
+            
+            oilPaintingsGrid.addEventListener('touchend', () => {
+                isScrolling = false;
+            });
+        }
+        
+        // Add scroll indicators
+        const addScrollIndicators = () => {
+            const scrollContainers = document.querySelectorAll('.oil-paintings-grid');
+            scrollContainers.forEach(container => {
+                const indicator = document.createElement('div');
+                indicator.className = 'scroll-indicator';
+                indicator.style.cssText = `
+                    position: absolute;
+                    bottom: 10px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 40px;
+                    height: 4px;
+                    background: rgba(0,0,0,0.2);
+                    border-radius: 2px;
+                    z-index: 10;
+                `;
+                container.style.position = 'relative';
+                container.appendChild(indicator);
+            });
+        };
+        
+        addScrollIndicators();
+    }
+}
+
+// Mobile Touch Feedback Enhancement
+function initTouchFeedback() {
+    if (window.innerWidth <= 768) {
+        const touchElements = document.querySelectorAll('.btn-primary, .btn-secondary, .view-artwork');
+        
+        touchElements.forEach(element => {
+            element.addEventListener('touchstart', function() {
+                this.style.transform = 'scale(0.95)';
+                this.style.transition = 'transform 0.1s ease';
+            });
+            
+            element.addEventListener('touchend', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+    }
+}
 
 // Admin panel content sync function removed - site is now Turkish only 

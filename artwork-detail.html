@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artwork Detail - Jasmine Art House</title>
+    <title>Eser Detayı - Jasmine Art House</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -28,10 +30,10 @@
                 <h2>Jasmine Art House</h2>
             </div>
             <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="about.html">Hakkımızda</a></li>
+                <li><a href="gallery.html">Galeri</a></li>
+                <li><a href="contact.html">İletişim</a></li>
             </ul>
         </div>
     </nav>
@@ -41,9 +43,9 @@
         <div class="container">
             <div class="artwork-hero-content">
                 <div class="breadcrumb">
-                    <a href="gallery.html">Gallery</a>
+                    <a href="gallery.html">Galeri</a>
                     <span>/</span>
-                    <span id="artwork-title">Artwork Title</span>
+                    <span id="artwork-title">Eser Başlığı</span>
                 </div>
                 <h1 class="artwork-title" id="artwork-title-main">Artwork Title</h1>
                 <p class="artwork-artist" id="artwork-artist">Artist Name</p>
@@ -58,9 +60,9 @@
                 <!-- Artwork Image -->
                 <div class="artwork-image-section">
                     <div class="artwork-image-container">
-                        <img id="artwork-image" src="" alt="Artwork" class="artwork-detail-image">
+                        <img id="artwork-image" src="" alt="Artwork" class="artwork-detail-image" loading="lazy">
                         <div class="artwork-overlay">
-                            <button class="zoom-btn" onclick="toggleZoom()">
+                            <button class="zoom-btn" onclick="toggleZoom()" title="Büyüt">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <circle cx="11" cy="11" r="8"></circle>
                                     <path d="m21 21-4.35-4.35"></path>
@@ -87,52 +89,52 @@
                 <!-- Artwork Information -->
                 <div class="artwork-info-section">
                     <div class="artwork-info-card">
-                        <h2 class="section-title">Artwork <span class="highlight">Details</span></h2>
+                        <h2 class="section-title">Eser <span class="highlight">Detayları</span></h2>
                         
                         <div class="artwork-meta">
                             <div class="meta-item">
-                                <span class="meta-label">Artist</span>
-                                <span class="meta-value" id="meta-artist">Artist Name</span>
+                                <span class="meta-label">Sanatçı</span>
+                                <span class="meta-value" id="meta-artist">Sanatçı Adı</span>
                             </div>
                             <div class="meta-item">
-                                <span class="meta-label">Year</span>
-                                <span class="meta-value" id="meta-year">Year</span>
+                                <span class="meta-label">Yıl</span>
+                                <span class="meta-value" id="meta-year">Yıl</span>
                             </div>
                             <div class="meta-item">
-                                <span class="meta-label">Medium</span>
-                                <span class="meta-value" id="meta-medium">Medium</span>
+                                <span class="meta-label">Teknik</span>
+                                <span class="meta-value" id="meta-medium">Teknik</span>
                             </div>
                             <div class="meta-item">
-                                <span class="meta-label">Dimensions</span>
-                                <span class="meta-value" id="meta-dimensions">Dimensions</span>
+                                <span class="meta-label">Boyutlar</span>
+                                <span class="meta-value" id="meta-dimensions">Boyutlar</span>
                             </div>
                             <div class="meta-item">
-                                <span class="meta-label">Style</span>
-                                <span class="meta-value" id="meta-style">Style</span>
+                                <span class="meta-label">Stil</span>
+                                <span class="meta-value" id="meta-style">Stil</span>
                             </div>
                             <div class="meta-item">
-                                <span class="meta-label">Location</span>
-                                <span class="meta-value" id="meta-location">Location</span>
+                                <span class="meta-label">Konum</span>
+                                <span class="meta-value" id="meta-location">Konum</span>
                             </div>
                         </div>
 
                         <div class="artwork-description">
-                            <h3>Description</h3>
-                            <p id="artwork-description">Detailed description of the artwork...</p>
+                            <h3>Açıklama</h3>
+                            <p id="artwork-description">Eserin detaylı açıklaması...</p>
                         </div>
 
                         <div class="artwork-history">
-                            <h3>Historical Context</h3>
-                            <p id="artwork-history">Historical context and significance...</p>
+                            <h3>Tarihi Bağlam</h3>
+                            <p id="artwork-history">Tarihi bağlam ve önem...</p>
                         </div>
 
                         <div class="artwork-technique">
-                            <h3>Technique & Analysis</h3>
-                            <p id="artwork-technique">Technical analysis and artistic techniques...</p>
+                            <h3>Teknik & Analiz</h3>
+                            <p id="artwork-technique">Teknik analiz ve sanatsal teknikler...</p>
                         </div>
 
                         <div class="artwork-tags">
-                            <h3>Tags</h3>
+                            <h3>Etiketler</h3>
                             <div class="tags-container" id="artwork-tags">
                                 <span class="tag">Renaissance</span>
                                 <span class="tag">Portrait</span>
@@ -148,38 +150,38 @@
     <!-- Related Artworks -->
     <section class="related-artworks">
         <div class="container">
-            <h2 class="section-title">Related <span class="highlight">Artworks</span></h2>
+            <h2 class="section-title">İlgili <span class="highlight">Eserler</span></h2>
             <div class="related-grid">
                 <div class="related-item">
                     <div class="related-image">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/687px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg" alt="Mona Lisa" class="related-img">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/687px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg" alt="Mona Lisa" class="related-img" loading="lazy">
                     </div>
                     <div class="related-info">
                         <h3>Mona Lisa</h3>
                         <p>Leonardo da Vinci</p>
-                        <a href="artwork-detail.html?artwork=mona-lisa" class="view-related">View Artwork</a>
+                        <a href="artwork-detail.html?artwork=mona-lisa" class="view-related">Eseri Görüntüle</a>
                     </div>
                 </div>
                 
                 <div class="related-item">
                     <div class="related-image">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/1665_Girl_with_a_Pearl_Earring.jpg/800px-1665_Girl_with_a_Pearl_Earring.jpg" alt="Girl with a Pearl Earring" class="related-img">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/1665_Girl_with_a_Pearl_Earring.jpg/800px-1665_Girl_with_a_Pearl_Earring.jpg" alt="Girl with a Pearl Earring" class="related-img" loading="lazy">
                     </div>
                     <div class="related-info">
                         <h3>Girl with a Pearl Earring</h3>
                         <p>Johannes Vermeer</p>
-                        <a href="artwork-detail.html?artwork=girl-pearl-earring" class="view-related">View Artwork</a>
+                        <a href="artwork-detail.html?artwork=girl-pearl-earring" class="view-related">Eseri Görüntüle</a>
                     </div>
                 </div>
                 
                 <div class="related-item">
                     <div class="related-image">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1280px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg" alt="The Starry Night" class="related-img">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1280px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg" alt="The Starry Night" class="related-img" loading="lazy">
                     </div>
                     <div class="related-info">
                         <h3>The Starry Night</h3>
                         <p>Vincent van Gogh</p>
-                        <a href="artwork-detail.html?artwork=starry-night" class="view-related">View Artwork</a>
+                        <a href="artwork-detail.html?artwork=starry-night" class="view-related">Eseri Görüntüle</a>
                     </div>
                 </div>
             </div>
@@ -192,19 +194,19 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Jasmine Art House</h3>
-                    <p>Preserving artistic heritage for future generations.</p>
+                    <p>Sanatsal mirası gelecek nesiller için koruyoruz.</p>
                 </div>
                 <div class="footer-section">
-                    <h4>Quick Links</h4>
+                    <h4>Hızlı Bağlantılar</h4>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="about.html">Hakkımızda</a></li>
+                        <li><a href="gallery.html">Galeri</a></li>
+                        <li><a href="contact.html">İletişim</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Connect</h4>
+                    <h4>Bağlantı</h4>
                     <ul>
                         <li><a href="#">Instagram</a></li>
                         <li><a href="#">Facebook</a></li>
@@ -214,7 +216,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Jasmine Art House. All rights reserved.</p>
+                <p>&copy; 2025 Jasmine Art House. Tüm hakları saklıdır.</p>
             </div>
         </div>
     </footer>
@@ -222,7 +224,7 @@
     <!-- Zoom Modal -->
     <div class="zoom-modal" id="zoomModal">
         <div class="modal-content">
-            <button class="close-modal" onclick="closeZoom()">
+            <button class="close-modal" onclick="closeZoom()" title="Kapat">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <line x1="18" y1="6" x2="6" y2="18"></line>
                     <line x1="6" y1="6" x2="18" y2="18"></line>

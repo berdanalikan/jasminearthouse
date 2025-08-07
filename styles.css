@@ -58,11 +58,13 @@ p {
 }
 
 /* Container */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
 
 /* Navigation */
 .navbar {
@@ -178,6 +180,120 @@ p {
     position: relative;
     padding: 0 2rem;
     margin-top: 80px;
+    overflow: hidden;
+}
+
+/* Elegant Light Beam Animation */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(45deg, transparent 0%, rgba(255, 255, 255, 0.4) 15%, transparent 30%, rgba(255, 255, 255, 0.35) 45%, transparent 60%, rgba(255, 255, 255, 0.3) 75%, transparent 100%);
+    animation: elegantLightSweep 12s ease-in-out infinite;
+    z-index: -1;
+}
+
+/* Left Side Light Beam for "Sanatta Miras" */
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(90deg, 
+            transparent 0%, 
+            rgba(255, 255, 255, 0.2) 10%, 
+            rgba(255, 255, 255, 0.6) 20%, 
+            rgba(255, 255, 255, 0.8) 30%, 
+            rgba(255, 255, 255, 0.6) 40%, 
+            rgba(255, 255, 255, 0.2) 50%, 
+            transparent 100%);
+    animation: leftLightBeam 8s ease-in-out infinite;
+    z-index: -1;
+}
+
+@keyframes elegantLightSweep {
+    0%, 100% {
+        transform: translateX(-100%) rotate(0deg);
+        opacity: 0;
+    }
+    25% {
+        transform: translateX(0%) rotate(5deg);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(100%) rotate(0deg);
+        opacity: 1;
+    }
+    75% {
+        transform: translateX(50%) rotate(-5deg);
+        opacity: 0.9;
+    }
+}
+
+@keyframes leftLightBeam {
+    0%, 100% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    25% {
+        transform: translateX(-50%);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+    75% {
+        transform: translateX(-25%);
+        opacity: 0.9;
+    }
+}
+
+/* Floating Light Orbs */
+.hero .floating-light-orbs {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.6) 0%, transparent 40%),
+        radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.5) 0%, transparent 35%),
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.4) 0%, transparent 30%),
+        radial-gradient(circle at 85% 15%, rgba(255, 255, 255, 0.55) 0%, transparent 45%);
+    animation: elegantLightFloat 15s ease-in-out infinite;
+    z-index: -1;
+}
+
+@keyframes elegantLightFloat {
+    0%, 100% {
+        transform: translateY(0px) scale(1);
+        opacity: 0.8;
+    }
+    20% {
+        transform: translateY(-20px) scale(1.1);
+        opacity: 1;
+    }
+    40% {
+        transform: translateY(-10px) scale(0.9);
+        opacity: 0.9;
+    }
+    60% {
+        transform: translateY(-30px) scale(1.2);
+        opacity: 1;
+    }
+    80% {
+        transform: translateY(-5px) scale(1);
+        opacity: 0.8;
+    }
 }
 
 .hero-content {
@@ -538,9 +654,18 @@ p {
     color: white;
 }
 
-.gallery-cta {
-    text-align: center;
-}
+    .gallery-cta {
+        text-align: center;
+        padding: 0 1rem;
+    }
+    
+    .gallery-cta .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin: 0 auto;
+    }
 
 /* Oil Paintings Section */
 .oil-paintings {
@@ -823,8 +948,739 @@ p {
     line-height: 1.6;
 }
 
-/* Mobile Studio Gallery */
+/* Enhanced Mobile Optimizations */
 @media (max-width: 768px) {
+    /* Enhanced Mobile Navigation */
+    .nav-container {
+        padding: 0 1rem;
+        position: relative;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.95);
+        -webkit-backdrop-filter: blur(20px);
+        backdrop-filter: blur(20px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1000;
+        gap: 2rem;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+        transform: translateX(0);
+    }
+    
+    .nav-menu li {
+        margin: 0;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+    }
+    
+    .nav-menu.active li {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .nav-menu li:nth-child(1) { transition-delay: 0.1s; }
+    .nav-menu li:nth-child(2) { transition-delay: 0.2s; }
+    .nav-menu li:nth-child(3) { transition-delay: 0.3s; }
+    .nav-menu li:nth-child(4) { transition-delay: 0.4s; }
+    .nav-menu li:nth-child(5) { transition-delay: 0.5s; }
+    
+    .nav-menu a {
+        font-size: 1.8rem;
+        padding: 1.5rem 3rem;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+        display: block;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .nav-menu a::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+        transition: left 0.5s ease;
+    }
+    
+    .nav-menu a:hover::before {
+        left: 100%;
+    }
+    
+    .nav-menu a:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateX(10px) scale(1.05);
+        color: var(--accent-color);
+    }
+    
+    /* Enhanced Mobile Menu Toggle */
+    .mobile-menu-toggle {
+        display: block;
+        position: relative;
+        width: 35px;
+        height: 25px;
+        cursor: pointer;
+        z-index: 1001;
+        transition: all 0.3s ease;
+    }
+    
+    .mobile-menu-toggle span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background: var(--text-primary);
+        position: absolute;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border-radius: 2px;
+    }
+    
+    .mobile-menu-toggle span:nth-child(1) {
+        top: 0;
+        transform-origin: center;
+    }
+    
+    .mobile-menu-toggle span:nth-child(2) {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
+    .mobile-menu-toggle span:nth-child(3) {
+        bottom: 0;
+        transform-origin: center;
+    }
+    
+    .mobile-menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+    
+    .mobile-menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+        transform: translateY(-50%) scale(0);
+    }
+    
+    .mobile-menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+    
+    .language-switch {
+        margin-left: auto;
+        margin-right: 1rem;
+    }
+    
+    .lang-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+        border-radius: 8px;
+    }
+    
+    /* Enhanced Mobile Hero - Improved Performance */
+    .hero {
+        min-height: 100vh;
+        padding: 1rem;
+        margin-top: 70px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    /* Optimized Light Effects for Mobile */
+    .hero::before {
+        animation: elegantLightSweep 20s ease-in-out infinite;
+        opacity: 0.8;
+        background: 
+            linear-gradient(45deg, transparent 0%, rgba(255, 255, 255, 0.3) 15%, transparent 30%, rgba(255, 255, 255, 0.25) 45%, transparent 60%, rgba(255, 255, 255, 0.2) 75%, transparent 100%);
+    }
+    
+    .hero::after {
+        animation: leftLightBeam 15s ease-in-out infinite;
+        opacity: 0.7;
+    }
+    
+    .hero .floating-light-orbs {
+        animation: elegantLightFloat 30s ease-in-out infinite;
+        opacity: 0.7;
+    }
+    
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2.5rem;
+        order: 2;
+        z-index: 3;
+        position: relative;
+        padding: 0 1rem;
+    }
+    
+    .hero-visual {
+        order: 1;
+        margin-bottom: 2.5rem;
+        height: 300px;
+        position: relative;
+    }
+    
+    .hero-title {
+        font-size: clamp(2.8rem, 8vw, 4.5rem);
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+        font-weight: 400;
+        text-align: center;
+    }
+    
+    .hero-description {
+        font-size: 1.2rem;
+        line-height: 1.7;
+        margin-bottom: 2.5rem;
+        font-weight: 300;
+        max-width: 100%;
+        text-align: center;
+        padding: 0 1rem;
+    }
+    
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        max-width: 280px;
+        padding: 1.2rem 2rem;
+        font-size: 1.1rem;
+        border-radius: 12px;
+        font-weight: 400;
+        letter-spacing: 1.5px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .btn-primary:hover, .btn-secondary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    /* Enhanced Mobile About Section */
+    .about .container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 2rem 1rem;
+    }
+    
+    .about-content {
+        text-align: center;
+        order: 1;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        padding: 2.5rem 1.5rem;
+        border-radius: 20px;
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .about-content .section-title {
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+    
+    .about-content .section-description {
+        text-align: center;
+        margin-bottom: 2rem;
+        padding: 0 0.5rem;
+    }
+    
+    .about-content .btn-secondary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .about-visual {
+        order: 2;
+        height: 280px;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        position: relative;
+    }
+    
+    /* Enhanced Mobile Gallery - Improved Layout */
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+        padding: 0.8rem 0;
+    }
+    
+    .gallery-item {
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+    }
+    
+    .gallery-item:active {
+        transform: scale(0.98);
+        transition: transform 0.1s ease;
+    }
+    
+    .gallery-item .artwork-image {
+        height: 220px;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .gallery-item:nth-child(odd) .artwork-image {
+        height: 280px;
+    }
+    
+    .gallery-item .artwork-info {
+        padding: 1.2rem;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .gallery-item .artwork-info h3 {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+    }
+    
+    .gallery-item .artwork-info p {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        margin-bottom: 0.8rem;
+    }
+    
+    .view-artwork {
+        font-size: 0.8rem;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        background: var(--accent-color);
+        color: white;
+        transition: all 0.3s ease;
+    }
+    
+    .view-artwork:hover {
+        background: var(--text-primary);
+        transform: translateY(-2px);
+    }
+    
+    /* Enhanced Mobile Oil Paintings - Smooth Horizontal Scroll */
+    .oil-paintings-grid {
+        display: flex;
+        overflow-x: auto;
+        gap: 1.2rem;
+        padding: 1.2rem 0;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    
+    .oil-paintings-grid::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .oil-painting-item {
+        flex: 0 0 300px;
+        scroll-snap-align: start;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .oil-painting-item:active {
+        transform: scale(0.98);
+    }
+    
+    .oil-painting-item .artwork-image {
+        height: 220px;
+        position: relative;
+    }
+    
+    .oil-painting-item .artwork-details {
+        padding: 1.2rem;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .oil-painting-item .artwork-details h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+        color: var(--text-primary);
+        font-weight: 500;
+    }
+    
+    .oil-painting-item .artwork-details p {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+    }
+    
+    /* Enhanced Mobile Studio Photography - Grid Layout */
+    .studio-photography-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        padding: 1rem 0;
+    }
+    
+    .studio-photo-item {
+        aspect-ratio: 1;
+        border-radius: 16px;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .studio-photo-item:active {
+        transform: scale(0.95);
+    }
+    
+    .studio-photo-item .artwork-image {
+        height: 100%;
+        width: 100%;
+        position: relative;
+    }
+    
+    .studio-photo-item .artwork-image img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        transition: all 0.3s ease;
+    }
+    
+    .studio-photo-item .artwork-details {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+        padding: 1.2rem;
+        transform: translateY(100%);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .studio-photo-item:hover .artwork-details {
+        transform: translateY(0);
+    }
+    
+    .studio-photo-item .artwork-details h3 {
+        font-size: 0.9rem;
+        color: white;
+        margin-bottom: 0.3rem;
+        font-weight: 500;
+    }
+    
+    .studio-photo-item .artwork-details p {
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.9);
+    }
+    
+    /* Enhanced Mobile Contact - Card Layout */
+    .contact-content-wrapper {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        padding: 1rem;
+    }
+    
+    .contact-form-section {
+        order: 1;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        padding: 2.5rem;
+        border-radius: 20px;
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .contact-info-section {
+        order: 2;
+    }
+    
+    .contact-info-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+    
+    .contact-info-item {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        padding: 2rem;
+        border-radius: 16px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .contact-info-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .contact-icon {
+        margin-bottom: 1.2rem;
+        font-size: 2rem;
+        color: var(--accent-color);
+    }
+    
+    .contact-details h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+        color: var(--text-primary);
+        font-weight: 500;
+    }
+    
+    .contact-details p {
+        font-size: 1rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+    }
+    
+    /* Enhanced Mobile Section Spacing - Reduced */
+    .gallery, .oil-paintings, .studio-photography, .studio-gallery {
+        padding: 3rem 0;
+    }
+    
+    .about {
+        padding: 4rem 0;
+    }
+    
+    .contact {
+        padding: 4rem 0;
+    }
+    
+    .footer {
+        padding: 3rem 0 2rem;
+    }
+    
+    .section-title {
+        font-size: clamp(2rem, 5vw, 3rem);
+        margin-bottom: 1.5rem;
+        font-weight: 400;
+        text-align: center;
+    }
+    
+    .section-description {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        margin-bottom: 2rem;
+        text-align: center;
+        padding: 0 1rem;
+    }
+    
+    /* Enhanced Mobile Footer */
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2.5rem;
+    }
+    
+    .container {
+        padding: 0 1.5rem;
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+    
+    /* Enhanced Mobile Studio Features */
+    .studio-features {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-top: 2.5rem;
+    }
+    
+    .feature-item {
+        padding: 2rem;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .feature-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    /* Enhanced Mobile Studio Info */
+    .studio-info-content {
+        padding: 0 1.5rem;
+    }
+    
+    .studio-hero-title {
+        font-size: clamp(2.8rem, 7vw, 4.5rem);
+    }
+    
+    .studio-hero-description {
+        font-size: 1.1rem;
+        line-height: 1.7;
+    }
+    
+    /* Mobile Performance Optimizations */
+    .floating-artworks .artwork-item {
+        animation: none;
+        transition: transform 0.3s ease;
+    }
+    
+    .scattered-artworks .artwork-item {
+        animation: none;
+        transition: transform 0.3s ease;
+    }
+    
+    /* Mobile Touch Feedback */
+    .gallery-item:active,
+    .oil-painting-item:active,
+    .studio-photo-item:active,
+    .btn-primary:active,
+    .btn-secondary:active {
+        transform: scale(0.98);
+        transition: transform 0.1s ease;
+    }
+    
+    /* Mobile Loading Optimizations */
+    .artwork-img {
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+    
+    .artwork-img.loaded {
+        opacity: 1;
+    }
+    
+    /* Enhanced Mobile Loading Skeleton */
+    .artwork-image::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+        background-size: 200% 100%;
+        animation: loading 2s infinite;
+        border-radius: 12px;
+    }
+    
+    .artwork-img.loaded + .artwork-image::before {
+        display: none;
+    }
+    
+    @keyframes loading {
+        0% {
+            background-position: 200% 0;
+        }
+        100% {
+            background-position: -200% 0;
+        }
+    }
+    
+    /* Mobile Scroll Indicators */
+    .oil-paintings-grid::before,
+    .oil-paintings-grid::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 30px;
+        pointer-events: none;
+        z-index: 1;
+    }
+    
+    .oil-paintings-grid::before {
+        left: 0;
+        background: linear-gradient(to right, rgba(255,255,255,0.9), transparent);
+    }
+    
+    .oil-paintings-grid::after {
+        right: 0;
+        background: linear-gradient(to left, rgba(255,255,255,0.9), transparent);
+    }
+    
+    /* Mobile Form Enhancements */
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 1.2rem;
+        border-radius: 12px;
+        font-size: 1rem;
+        border: 2px solid var(--border-color);
+        transition: all 0.3s ease;
+    }
+    
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        border-color: var(--accent-color);
+        box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        transform: translateY(-2px);
+    }
+    
+    /* Mobile Button Enhancements */
+    .btn-primary, .btn-secondary {
+        border-radius: 12px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .btn-primary:hover, .btn-secondary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    /* Mobile Navigation Enhancements */
+    .navbar {
+        padding: 1rem 0;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+    }
+    
+    .nav-logo h2 {
+        font-size: 1.3rem;
+    }
+    
+    /* Mobile Studio Gallery */
     .studio-gallery-grid {
         display: flex;
         overflow-x: auto;
@@ -3044,21 +3900,22 @@ p {
     text-align: center;
 }
 
-.contact-content h2 {
-    margin-bottom: 2rem;
-    animation: fadeInUp 1s ease;
-    font-weight: 400;
-}
-
-.contact-content p {
-    margin-bottom: 3rem;
-    animation: fadeInUp 1s ease 0.2s both;
-    font-weight: 300;
-    line-height: 1.8;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
+    .contact-content h2 {
+        margin-bottom: 2rem;
+        animation: fadeInUp 1s ease;
+        font-weight: 400;
+        text-align: center;
+    }
+    
+    .contact-content p {
+        margin-bottom: 3rem;
+        animation: fadeInUp 1s ease 0.2s both;
+        font-weight: 300;
+        line-height: 1.8;
+        max-width: 100%;
+        text-align: center;
+        padding: 0 1rem;
+    }
 
 /* Footer */
 .footer {
@@ -3119,8 +3976,92 @@ p {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    /* Mobile Navigation */
+    .nav-container {
+        padding: 0 1rem;
+    }
+    
     .nav-menu {
-        display: none;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.95);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: left 0.3s ease;
+        z-index: 1000;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-menu li {
+        margin: 1rem 0;
+    }
+    
+    .nav-menu a {
+        font-size: 1.5rem;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+    
+    .nav-menu a:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateX(10px);
+    }
+    
+    /* Mobile Menu Toggle */
+    .mobile-menu-toggle {
+        display: block;
+        position: relative;
+        width: 30px;
+        height: 20px;
+        cursor: pointer;
+        z-index: 1001;
+    }
+    
+    .mobile-menu-toggle span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: var(--text-primary);
+        position: absolute;
+        transition: all 0.3s ease;
+    }
+    
+    .mobile-menu-toggle span:nth-child(1) {
+        top: 0;
+    }
+    
+    .mobile-menu-toggle span:nth-child(2) {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
+    .mobile-menu-toggle span:nth-child(3) {
+        bottom: 0;
+    }
+    
+    .mobile-menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg);
+        top: 50%;
+    }
+    
+    .mobile-menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .mobile-menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg);
+        bottom: 50%;
     }
     
     .language-switch {
@@ -3132,94 +4073,344 @@ p {
         font-size: 0.7rem;
     }
     
-    /* Mobile Hero Optimization */
+    /* Mobile Hero Optimization - Vertical Stack Layout */
     .hero {
-        min-height: 80vh;
-        padding: 0 1rem;
+        min-height: 90vh;
+        padding: 1rem;
         margin-top: 60px;
+        display: flex;
+        align-items: center;
+    }
+    
+    /* Mobile Light Effects - Elegant */
+    .hero::before {
+        animation: elegantLightSweep 18s ease-in-out infinite;
+        opacity: 1;
+    }
+    
+    .hero::after {
+        animation: leftLightBeam 12s ease-in-out infinite;
+        opacity: 0.9;
+    }
+    
+    .hero .floating-light-orbs {
+        animation: elegantLightFloat 25s ease-in-out infinite;
+        opacity: 0.9;
     }
     
     .hero-content {
         grid-template-columns: 1fr;
         text-align: center;
-        gap: 1.5rem;
+        gap: 2rem;
+        order: 2;
+    }
+    
+    .hero-visual {
+        order: 1;
+        margin-bottom: 2rem;
     }
     
     .hero-title {
-        font-size: clamp(2.5rem, 6vw, 4rem);
+        font-size: clamp(2.5rem, 8vw, 4rem);
         line-height: 1.1;
+        margin-bottom: 1rem;
     }
     
     .hero-description {
-        font-size: 1rem;
+        font-size: 1.1rem;
         line-height: 1.6;
+        margin-bottom: 2rem;
     }
     
-    /* Mobile About Section */
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+    
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        max-width: 300px;
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+    
+    /* Mobile About Section - Card Style Layout */
     .about .container {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 2rem;
+        padding: 2rem 1rem;
     }
     
     .about-content {
         text-align: center;
         order: 1;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        padding: 2rem;
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     }
     
     .about-visual {
         order: 2;
-        height: 300px;
+        height: 250px;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
     }
     
-    /* Mobile Scattered Artworks - Compact Layout */
     .scattered-artworks {
-        height: 250px;
+        height: 100%;
         position: relative;
     }
     
     .artwork-6, .artwork-7, .artwork-8, .artwork-9 {
-        width: 80px;
-        height: 100px;
+        width: 60px;
+        height: 80px;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     }
     
-    /* Mobile Gallery - Compact Cards */
+    /* Mobile Performance Optimizations */
+    .floating-artworks .artwork-item {
+        animation: none; /* Disable floating animation on mobile for better performance */
+    }
+    
+    .scattered-artworks .artwork-item {
+        animation: none; /* Disable floating animation on mobile for better performance */
+    }
+    
+    /* Mobile Touch Optimizations */
+    .gallery-item:hover,
+    .oil-painting-item:hover,
+    .studio-photo-item:hover {
+        transform: none; /* Disable hover effects on mobile */
+    }
+    
+    .gallery-item:active,
+    .oil-painting-item:active,
+    .studio-photo-item:active {
+        transform: scale(0.98);
+        transition: transform 0.1s ease;
+    }
+    
+    /* Mobile Loading Optimizations */
+    .artwork-img {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .artwork-img.loaded {
+        opacity: 1;
+    }
+    
+    /* Mobile Loading Skeleton */
+    .artwork-image::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+        background-size: 200% 100%;
+        animation: loading 1.5s infinite;
+        border-radius: 8px;
+    }
+    
+    .artwork-img.loaded + .artwork-image::before {
+        display: none;
+    }
+    
+    @keyframes loading {
+        0% {
+            background-position: 200% 0;
+        }
+        100% {
+            background-position: -200% 0;
+        }
+    }
+    
+    /* Mobile Scattered Artworks - Grid Layout */
+    .scattered-artworks {
+        height: 180px;
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 0.5rem;
+        padding: 0.5rem;
+    }
+    
+    .artwork-6, .artwork-7, .artwork-8, .artwork-9 {
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .artwork-6 {
+        grid-column: 1;
+        grid-row: 1;
+    }
+    
+    .artwork-7 {
+        grid-column: 2;
+        grid-row: 1;
+    }
+    
+    .artwork-8 {
+        grid-column: 1;
+        grid-row: 2;
+    }
+    
+    .artwork-9 {
+        grid-column: 2;
+        grid-row: 2;
+    }
+    
+    .scattered-artworks .floating-artwork-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+    
+    /* Mobile Gallery - Masonry Style Layout */
     .gallery-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1rem;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
         padding: 0.5rem 0;
     }
     
     .gallery-item {
-        border-radius: 6px;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
     
     .gallery-item .artwork-image {
+        height: 200px;
+    }
+    
+    .gallery-item:nth-child(odd) .artwork-image {
         height: 250px;
     }
     
-    /* Mobile Oil Paintings - Compact Layout */
+    .gallery-item .artwork-info {
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+    
+    .gallery-item .artwork-info h3 {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .gallery-item .artwork-info p {
+        font-size: 0.8rem;
+        color: var(--text-secondary);
+    }
+    
+    /* Mobile Oil Paintings - Horizontal Scroll Layout */
     .oil-paintings-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        display: flex;
+        overflow-x: auto;
         gap: 1rem;
-        padding: 0.5rem 0;
+        padding: 1rem 0;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .oil-painting-item {
+        flex: 0 0 280px;
+        scroll-snap-align: start;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     }
     
     .oil-painting-item .artwork-image {
-        height: 250px;
+        height: 200px;
     }
     
-    /* Mobile Studio Photography - Compact Layout */
+    .oil-painting-item .artwork-details {
+        padding: 1rem;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.8));
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+    
+    .oil-painting-item .artwork-details h3 {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+        color: var(--text-primary);
+    }
+    
+    .oil-painting-item .artwork-details p {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+    }
+    
+    /* Mobile Studio Photography - Carousel Style Layout */
     .studio-photography-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1rem;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
         padding: 0.5rem 0;
     }
     
+    .studio-photo-item {
+        aspect-ratio: 1;
+        border-radius: 50%;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    
     .studio-photo-item .artwork-image {
-        height: 250px;
+        height: 100%;
+        width: 100%;
+    }
+    
+    .studio-photo-item .artwork-image img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .studio-photo-item .artwork-details {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+        padding: 1rem;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+    }
+    
+    .studio-photo-item:hover .artwork-details {
+        transform: translateY(0);
+    }
+    
+    .studio-photo-item .artwork-details h3 {
+        font-size: 0.8rem;
+        color: white;
+        margin-bottom: 0.25rem;
+    }
+    
+    .studio-photo-item .artwork-details p {
+        font-size: 0.7rem;
+        color: rgba(255, 255, 255, 0.9);
     }
     
     /* Mobile Studio Gallery - Compact Layout */
@@ -3284,24 +4475,514 @@ p {
         font-size: 1rem;
         line-height: 1.6;
     }
+    
+    /* Mobile Contact - Stacked Layout with Cards */
+    .contact-content-wrapper {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 1rem;
+    }
+    
+    .contact-form-section {
+        order: 1;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        padding: 2rem;
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+    
+    .contact-info-section {
+        order: 2;
+    }
+    
+    .contact-info-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .contact-info-item {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+    
+    .contact-info-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    }
+    
+    .contact-icon {
+        margin-bottom: 1rem;
+    }
+    
+    .contact-details h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+        color: var(--text-primary);
+    }
+    
+    .contact-details p {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        line-height: 1.5;
+    }
 }
 
 @media (max-width: 480px) {
-    h1 {
-        font-size: 2.5rem;
+    /* Ultra Mobile Optimizations */
+    .hero {
+        min-height: 90vh;
+        padding: 1rem 0.5rem;
+        margin-top: 60px;
     }
     
-    h2 {
-        font-size: 1.8rem;
+    .hero-title {
+        font-size: clamp(2.2rem, 7vw, 3.5rem);
+        line-height: 1.1;
+        text-align: center;
+        padding: 0 0.5rem;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+        line-height: 1.6;
+        max-width: 100%;
+        text-align: center;
+        padding: 0 1rem;
     }
     
     .btn-primary, .btn-secondary {
-        padding: 0.8rem 1.5rem;
+        width: 100%;
+        max-width: 260px;
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+        border-radius: 10px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Ultra Compact Gallery */
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+        padding: 0.5rem 0;
+    }
+    
+    .gallery-item .artwork-image {
+        height: 200px;
+    }
+    
+    .gallery-item:nth-child(odd) .artwork-image {
+        height: 250px;
+    }
+    
+    .gallery-item .artwork-info {
+        padding: 1rem;
+    }
+    
+    .gallery-item .artwork-info h3 {
+        font-size: 0.9rem;
+    }
+    
+    .gallery-item .artwork-info p {
         font-size: 0.8rem;
     }
     
-    .gallery-item, .collection-item {
+    /* Ultra Compact Oil Paintings */
+    .oil-paintings-grid {
+        gap: 0.8rem;
+        padding: 0.8rem 0;
+    }
+    
+    .oil-painting-item {
+        flex: 0 0 260px;
+        border-radius: 12px;
+    }
+    
+    .oil-painting-item .artwork-image {
+        height: 180px;
+    }
+    
+    .oil-painting-item .artwork-details {
         padding: 1rem;
+    }
+    
+    .oil-painting-item .artwork-details h3 {
+        font-size: 1rem;
+    }
+    
+    .oil-painting-item .artwork-details p {
+        font-size: 0.85rem;
+    }
+    
+    /* Ultra Compact Studio Photos */
+    .studio-photography-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+        padding: 0.5rem 0;
+    }
+    
+    .studio-photo-item {
+        border-radius: 12px;
+    }
+    
+    .studio-photo-item .artwork-details {
+        padding: 1rem;
+    }
+    
+    .studio-photo-item .artwork-details h3 {
+        font-size: 0.8rem;
+    }
+    
+    .studio-photo-item .artwork-details p {
+        font-size: 0.75rem;
+    }
+    
+    /* Ultra Compact About Section */
+    .about .container {
+        padding: 1rem 0.5rem;
+        gap: 2rem;
+    }
+    
+    .about-content {
+        padding: 2rem;
+        border-radius: 16px;
+    }
+    
+    .about-visual {
+        height: 220px;
+        border-radius: 16px;
+    }
+    
+    /* Ultra Compact Contact Form */
+    .contact-form-section {
+        padding: 2rem;
+        border-radius: 16px;
+    }
+    
+    .contact-info-item {
+        padding: 1.5rem;
+        border-radius: 12px;
+    }
+    
+    .contact-details h3 {
+        font-size: 1.1rem;
+    }
+    
+    .contact-details p {
+        font-size: 0.9rem;
+    }
+    
+    /* Ultra Compact Navigation */
+    .nav-menu a {
+        font-size: 1.6rem;
+        padding: 1.2rem 2.5rem;
+    }
+    
+    .mobile-menu-toggle {
+        width: 30px;
+        height: 20px;
+    }
+    
+    /* Ultra Compact Container */
+    .container {
+        padding: 0 1rem;
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+    
+    /* Mobile page-specific optimizations */
+    .about-hero,
+    .gallery-hero,
+    .contact-hero,
+    .artwork-hero,
+    .studio-hero {
+        min-height: 60vh;
+        padding: 2rem 1rem;
+        margin-top: 70px;
+    }
+    
+    .about-hero-content,
+    .gallery-hero-content,
+    .contact-hero-content,
+    .artwork-hero-content,
+    .studio-hero-content {
+        text-align: center;
+        padding: 0 1rem;
+    }
+    
+    .about-hero-title,
+    .gallery-hero-title,
+    .contact-hero-title,
+    .artwork-hero-title,
+    .studio-hero-title {
+        font-size: clamp(2.5rem, 8vw, 4rem);
+        margin-bottom: 1rem;
+        line-height: 1.2;
+    }
+    
+    .about-hero-description,
+    .gallery-hero-description,
+    .contact-hero-description,
+    .artwork-hero-description,
+    .studio-hero-description {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+    
+    /* Mobile section optimizations */
+    .mission,
+    .history,
+    .values,
+    .team,
+    .gallery-main,
+    .contact-main,
+    .artwork-detail {
+        padding: 2rem 1rem;
+    }
+    
+    .mission-content,
+    .history-content,
+    .values-content,
+    .team-content,
+    .gallery-main,
+    .contact-main {
+        max-width: 100%;
+        padding: 0;
+    }
+    
+    /* Mobile grid optimizations */
+    .mission-grid,
+    .values-grid,
+    .team-grid,
+    .gallery-grid-extended,
+    .contact-info-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0;
+    }
+    
+    /* Mobile card optimizations */
+    .mission-item,
+    .value-item,
+    .team-member,
+    .gallery-item-extended,
+    .contact-info-item {
+        padding: 1.5rem;
+        margin: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    /* Mobile form optimizations */
+    .contact-form-section,
+    .contact-form {
+        padding: 1.5rem;
+        margin: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+    
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 1rem;
+        font-size: 1rem;
+    }
+    
+    /* Mobile artwork detail optimizations */
+    .artwork-content-wrapper {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 1rem;
+    }
+    
+    .artwork-image-section,
+    .artwork-info-section {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .artwork-image-container {
+        width: 100%;
+        height: auto;
+        max-height: 60vh;
+    }
+    
+    .artwork-detail-image {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+    
+    /* Mobile breadcrumb optimizations */
+    .breadcrumb {
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Mobile related artworks */
+    .related-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+        padding: 0;
+    }
+    
+    .related-item {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    /* Mobile modal optimizations */
+    .zoom-modal {
+        padding: 1rem;
+    }
+    
+    .modal-content {
+        width: 95%;
+        max-width: 95%;
+        margin: 1rem auto;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+    
+    .modal-artwork {
+        width: 100%;
+        height: auto;
+        max-height: 70vh;
+        object-fit: contain;
+    }
+    
+    /* Ultra Compact Section Spacing - Further Reduced */
+    .gallery, .oil-paintings, .studio-photography {
+        padding: 2.5rem 0;
+    }
+    
+    .about {
+        padding: 3rem 0;
+    }
+    
+    .contact {
+        padding: 3rem 0;
+    }
+    
+    .footer {
+        padding: 2rem 0 1.5rem;
+    }
+    
+    .section-title {
+        font-size: clamp(1.8rem, 5vw, 2.5rem);
+        margin-bottom: 1rem;
+        text-align: center;
+        padding: 0 0.5rem;
+    }
+    
+    .section-description {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        padding: 0 1rem;
+    }
+    
+    /* Ultra Compact Light Effects */
+    .hero::before {
+        animation: elegantLightSweep 35s ease-in-out infinite;
+        opacity: 0.7;
+    }
+    
+    .hero::after {
+        animation: leftLightBeam 25s ease-in-out infinite;
+        opacity: 0.6;
+    }
+    
+    .hero .floating-light-orbs {
+        animation: elegantLightFloat 40s ease-in-out infinite;
+        opacity: 0.6;
+    }
+    
+    /* Ultra compact circular light beam - embedded in page above "Sanatta Miras" */
+    .circular-light-beam {
+        width: 150px;
+        height: 150px;
+        opacity: 0.5;
+        position: absolute; /* Embedded in page */
+        left: 50%; /* Centered horizontally */
+        top: 20%; /* Positioned above "Sanatta Miras" text */
+        transition: opacity 0.3s ease, visibility 0.3s ease; /* Removed transform transition */
+    }
+    
+    .light-beam-container {
+        height: 100vh; /* Only cover first viewport on ultra small screens */
+    }
+    
+    .circular-light-beam::before {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .circular-light-beam::after {
+        width: 40px;
+        height: 40px;
+    }
+    
+    /* Ultra Compact Footer */
+    .footer-content {
+        gap: 2rem;
+    }
+    
+    .footer-section h3,
+    .footer-section h4 {
+        font-size: 1.2rem;
+    }
+    
+    .footer-section p {
+        font-size: 0.9rem;
+    }
+    
+    /* Ultra Compact Form Elements */
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 1rem;
+        font-size: 0.9rem;
+        border-radius: 10px;
+    }
+    
+    /* Ultra Compact Buttons */
+    .view-artwork {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
+        border-radius: 6px;
+    }
+    
+    /* Ultra Compact Loading Skeleton */
+    .artwork-image::before {
+        border-radius: 10px;
+    }
+    
+    /* Ultra Compact Scroll Indicators */
+    .oil-paintings-grid::before,
+    .oil-paintings-grid::after {
+        width: 20px;
     }
 }
 
@@ -3310,75 +4991,177 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Light Beam Animation */
+/* Mobile Scroll Optimizations */
+@media (max-width: 768px) {
+    /* Improve scroll performance on mobile */
+    * {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Optimize horizontal scroll for oil paintings */
+    .oil-paintings-grid {
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+    }
+    
+    .oil-paintings-grid::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
+    
+    /* Add scroll indicators for horizontal scroll */
+    .oil-paintings-grid::before,
+    .oil-paintings-grid::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 20px;
+        pointer-events: none;
+        z-index: 1;
+    }
+    
+    .oil-paintings-grid::before {
+        left: 0;
+        background: linear-gradient(to right, rgba(255,255,255,0.8), transparent);
+    }
+    
+    .oil-paintings-grid::after {
+        right: 0;
+        background: linear-gradient(to left, rgba(255,255,255,0.8), transparent);
+    }
+}
+
+/* Enhanced Circular Light Beam Animation - Embedded in Page */
 .light-beam-container {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh; /* Only cover first viewport */
     pointer-events: none;
     z-index: 1;
     overflow: hidden;
 }
 
-.vertical-light-beam {
-    position: absolute;
-    left: 50%;
-    top: 0;
-    width: 80px;
-    height: 100vh;
-    background: radial-gradient(ellipse at center, 
-        rgba(255, 255, 255, 0.08) 0%, 
-        rgba(212, 175, 55, 0.06) 30%, 
-        rgba(139, 69, 19, 0.04) 60%, 
-        rgba(44, 62, 80, 0.02) 80%, 
+.circular-light-beam {
+    position: absolute; /* Embedded in page, not fixed */
+    left: 35%; /* Positioned to the left of "Sanatta Miras" on desktop */
+    top: 50%; /* Centered vertically with the title */
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, 
+        rgba(212, 175, 55, 0.15) 0%, 
+        rgba(255, 193, 7, 0.12) 20%, 
+        rgba(255, 193, 7, 0.08) 40%, 
+        rgba(255, 193, 7, 0.05) 60%, 
+        rgba(255, 193, 7, 0.02) 80%, 
         transparent 100%);
-    transform: translateX(-50%);
-    opacity: 0.15;
-    animation: verticalBeamMove 15s ease-in-out infinite;
+    transform: translate(-50%, -50%);
+    opacity: 0.8;
+    /* Embedded in page, scrolls with content */
+    border-radius: 50%;
     box-shadow: 
-        0 0 20px rgba(255, 255, 255, 0.05),
-        0 0 40px rgba(212, 175, 55, 0.03),
-        0 0 60px rgba(139, 69, 19, 0.02);
+        0 0 30px rgba(212, 175, 55, 0.2),
+        0 0 60px rgba(255, 193, 7, 0.15),
+        0 0 90px rgba(255, 193, 7, 0.1),
+        inset 0 0 50px rgba(212, 175, 55, 0.1);
+    z-index: 1;
+    pointer-events: none;
 }
 
-@keyframes verticalBeamMove {
+.circular-light-beam::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, 
+        rgba(255, 193, 7, 0.2) 0%, 
+        rgba(212, 175, 55, 0.15) 30%, 
+        rgba(255, 193, 7, 0.1) 60%, 
+        transparent 100%);
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    /* Removed animation to keep it stationary */
+}
+
+.circular-light-beam::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, 
+        rgba(255, 193, 7, 0.3) 0%, 
+        rgba(212, 175, 55, 0.2) 50%, 
+        transparent 100%);
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    /* Removed animation to keep it stationary */
+}
+
+@keyframes circularBeamMove {
     0% {
-        opacity: 0.08;
-        transform: translateX(-50%) scaleY(0.9);
-        filter: blur(3px);
-    }
-    25% {
-        opacity: 0.18;
-        transform: translateX(-50%) scaleY(1.05);
+        opacity: 0.6;
+        transform: translate(-50%, -50%) scale(0.8);
         filter: blur(2px);
     }
-    50% {
-        opacity: 0.12;
-        transform: translateX(-50%) scaleY(0.95);
-        filter: blur(2.5px);
+    25% {
+        opacity: 0.9;
+        transform: translate(-50%, -50%) scale(1.1);
+        filter: blur(1px);
     }
-    75% {
-        opacity: 0.22;
-        transform: translateX(-50%) scaleY(1.1);
+    50% {
+        opacity: 0.7;
+        transform: translate(-50%, -50%) scale(0.9);
         filter: blur(1.5px);
     }
+    75% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.2);
+        filter: blur(0.5px);
+    }
     100% {
-        opacity: 0.08;
-        transform: translateX(-50%) scaleY(0.9);
-        filter: blur(3px);
+        opacity: 0.6;
+        transform: translate(-50%, -50%) scale(0.8);
+        filter: blur(2px);
+    }
+}
+
+@keyframes innerCirclePulse {
+    0%, 100% {
+        opacity: 0.8;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+}
+
+@keyframes corePulse {
+    0%, 100% {
+        opacity: 0.9;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.3);
     }
 }
 
 .light-particle {
-    position: absolute;
+    position: absolute; /* Embedded in page, not fixed */
     width: 4px;
     height: 4px;
     background: radial-gradient(circle, rgba(255, 255, 255, 0.8), transparent);
     border-radius: 50%;
     opacity: 0;
-    animation: particleFloat 6s ease-in-out infinite;
+    /* Embedded in page, scrolls with content */
+    z-index: 1;
+    pointer-events: none;
 }
 
 .particle-1 {
@@ -3622,4 +5405,487 @@ html {
 
 .artwork-11 {
     background: linear-gradient(135deg, #8e44ad, #9b59b6);
-} 
+}
+
+/* Mobile Performance Enhancements */
+@media (max-width: 768px) {
+    /* Reduce animations for better performance */
+    * {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Mobile viewport optimization */
+    html, body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+        box-sizing: border-box;
+    }
+    
+    /* Mobile page width optimization */
+    .about-hero,
+    .gallery-hero,
+    .contact-hero,
+    .artwork-hero,
+    .studio-hero,
+    .mission,
+    .history,
+    .values,
+    .team,
+    .gallery-main,
+    .contact-main,
+    .artwork-detail {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+        box-sizing: border-box;
+    }
+    
+    /* Mobile content wrapper optimization */
+    .about-hero-content,
+    .gallery-hero-content,
+    .contact-hero-content,
+    .artwork-hero-content,
+    .studio-hero-content,
+    .mission-content,
+    .history-content,
+    .values-content,
+    .team-content {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 1rem;
+        box-sizing: border-box;
+    }
+    
+    /* Optimize image loading for mobile */
+    img {
+        max-width: 100%;
+        height: auto;
+        will-change: opacity;
+    }
+    
+    /* Disable heavy animations on mobile */
+    .floating-artworks .artwork-item,
+    .scattered-artworks .artwork-item {
+        animation: none;
+    }
+    
+    /* Optimize scroll performance */
+    .oil-paintings-grid {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .oil-paintings-grid::-webkit-scrollbar {
+        display: none;
+    }
+    
+    /* Reduce box-shadow complexity for better performance */
+    .gallery-item,
+    .oil-painting-item,
+    .studio-photo-item {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Optimize backdrop-filter usage */
+    .nav-menu,
+    .about-content,
+    .contact-form-section,
+    .contact-info-item,
+    .feature-item {
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+    }
+    
+    /* Mobile-specific performance optimizations */
+    .hero::before,
+    .hero::after,
+    .hero .floating-light-orbs {
+        will-change: transform, opacity;
+    }
+    
+    /* Mobile circular light beam - embedded in page above "Sanatta Miras" */
+    .circular-light-beam {
+        width: 200px;
+        height: 200px;
+        opacity: 0.6;
+        position: absolute; /* Embedded in page */
+        left: 50%; /* Centered horizontally */
+        top: 25%; /* Positioned above "Sanatta Miras" text */
+        transition: opacity 0.3s ease, visibility 0.3s ease; /* Removed transform transition */
+    }
+    
+    .light-beam-container {
+        height: 100vh; /* Only cover first viewport on mobile */
+    }
+    
+    .circular-light-beam::before {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .circular-light-beam::after {
+        width: 60px;
+        height: 60px;
+    }
+    
+    /* Optimize touch targets */
+    .nav-menu a,
+    .btn-primary,
+    .btn-secondary,
+    .view-artwork {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Improve mobile scrolling */
+    .oil-paintings-grid {
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Mobile loading states */
+    .artwork-image.loading::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+        background-size: 200% 100%;
+        animation: loading 1.5s infinite;
+        border-radius: 12px;
+        z-index: 1;
+    }
+    
+    /* Mobile scroll indicators */
+    .scroll-indicator {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 4px;
+        background: rgba(0,0,0,0.2);
+        border-radius: 2px;
+        z-index: 10;
+    }
+    
+    /* Mobile accessibility improvements */
+    .nav-menu a:focus,
+    .btn-primary:focus,
+    .btn-secondary:focus,
+    .view-artwork:focus {
+        outline: 2px solid var(--accent-color);
+        outline-offset: 2px;
+    }
+    
+    /* Mobile form improvements */
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+    }
+    
+    /* Mobile button improvements */
+    .btn-primary:active,
+    .btn-secondary:active {
+        transform: scale(0.95);
+        transition: transform 0.1s ease;
+    }
+    
+    /* Mobile image optimization */
+    .artwork-img {
+        object-fit: cover;
+        transition: opacity 0.3s ease;
+    }
+    
+    /* Mobile text optimization */
+    .hero-title,
+    .section-title {
+        text-rendering: optimizeLegibility;
+        -webkit-font-feature-settings: "liga" 1, "kern" 1;
+        font-feature-settings: "liga" 1, "kern" 1;
+    }
+    
+    /* Mobile gesture improvements */
+    .gallery-item,
+    .oil-painting-item,
+    .studio-photo-item {
+        touch-action: manipulation;
+    }
+    
+    /* Mobile viewport optimization */
+    .hero,
+    .about,
+    .gallery,
+    .studio-photography {
+        contain: layout style paint;
+    }
+    
+    /* Mobile page width fixes */
+    .about-hero,
+    .gallery-hero,
+    .contact-hero,
+    .artwork-hero,
+    .studio-hero {
+        width: 100vw;
+        max-width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        margin-right: calc(-50vw + 50%);
+        overflow-x: hidden;
+    }
+    
+    /* Mobile content width fixes */
+    .about-hero-content,
+    .gallery-hero-content,
+    .contact-hero-content,
+    .artwork-hero-content,
+    .studio-hero-content {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 1rem;
+        box-sizing: border-box;
+    }
+    
+    /* Mobile section width fixes */
+    .mission,
+    .history,
+    .values,
+    .team,
+    .gallery-main,
+    .contact-main,
+    .artwork-detail {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+        box-sizing: border-box;
+    }
+    
+    /* Mobile grid width fixes */
+    .mission-grid,
+    .values-grid,
+    .team-grid,
+    .gallery-grid-extended,
+    .contact-info-grid {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    /* Mobile card width fixes */
+    .mission-item,
+    .value-item,
+    .team-member,
+    .gallery-item-extended,
+    .contact-info-item {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    /* Mobile lazy loading optimization */
+    img[loading="lazy"] {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    img[loading="lazy"].loaded {
+        opacity: 1;
+    }
+    
+    /* Mobile touch feedback */
+    .gallery-item:active,
+    .oil-painting-item:active,
+    .studio-photo-item:active {
+        transform: scale(0.98);
+        transition: transform 0.1s ease;
+    }
+    
+    /* Mobile pull-to-refresh prevention */
+    body {
+        overscroll-behavior: contain;
+    }
+    
+    /* Mobile keyboard navigation */
+    .nav-menu a:focus-visible,
+    .btn-primary:focus-visible,
+    .btn-secondary:focus-visible {
+        outline: 2px solid var(--accent-color);
+        outline-offset: 2px;
+    }
+}
+    
+    /* Optimize scroll performance */
+    .oil-paintings-grid {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    
+    .oil-paintings-grid::-webkit-scrollbar {
+        display: none;
+    }
+    
+    /* Disable heavy animations on mobile */
+    .floating-artworks .artwork-item,
+    .scattered-artworks .artwork-item {
+        animation: none;
+    }
+    
+    /* Optimize image loading */
+    .artwork-img {
+        will-change: opacity;
+    }
+    
+    /* Reduce box-shadow complexity for better performance */
+    .gallery-item,
+    .oil-painting-item,
+    .studio-photo-item {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Optimize backdrop-filter usage */
+    .nav-menu,
+    .about-content,
+    .contact-form-section,
+    .contact-info-item,
+    .feature-item {
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+    }
+    
+    /* Mobile-specific performance optimizations */
+    .hero::before,
+    .hero::after,
+    .hero .floating-light-orbs {
+        will-change: transform, opacity;
+    }
+    
+    /* Mobile circular light beam - embedded in page above "Sanatta Miras" */
+    .circular-light-beam {
+        width: 200px;
+        height: 200px;
+        opacity: 0.6;
+        position: absolute; /* Embedded in page */
+        left: 50%; /* Centered horizontally */
+        top: 25%; /* Positioned above "Sanatta Miras" text */
+        transition: opacity 0.3s ease, visibility 0.3s ease; /* Removed transform transition */
+    }
+    
+    .light-beam-container {
+        height: 100vh; /* Only cover first viewport on mobile */
+    }
+    
+    .circular-light-beam::before {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .circular-light-beam::after {
+        width: 60px;
+        height: 60px;
+    }
+    
+    /* Optimize touch targets */
+    .nav-menu a,
+    .btn-primary,
+    .btn-secondary,
+    .view-artwork {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Improve mobile scrolling */
+    .oil-paintings-grid {
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Mobile loading states */
+    .artwork-image.loading::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+        background-size: 200% 100%;
+        animation: loading 1.5s infinite;
+        border-radius: 12px;
+        z-index: 1;
+    }
+    
+    /* Mobile scroll indicators */
+    .scroll-indicator {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 4px;
+        background: rgba(0,0,0,0.2);
+        border-radius: 2px;
+        z-index: 10;
+    }
+    
+    /* Mobile accessibility improvements */
+    .nav-menu a:focus,
+    .btn-primary:focus,
+    .btn-secondary:focus,
+    .view-artwork:focus {
+        outline: 2px solid var(--accent-color);
+        outline-offset: 2px;
+    }
+    
+    /* Mobile form improvements */
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+    }
+    
+    /* Mobile button improvements */
+    .btn-primary:active,
+    .btn-secondary:active {
+        transform: scale(0.95);
+        transition: transform 0.1s ease;
+    }
+    
+    /* Mobile image optimization */
+    .artwork-img {
+        object-fit: cover;
+        transition: opacity 0.3s ease;
+    }
+    
+    /* Mobile text optimization */
+    .hero-title,
+    .section-title {
+        text-rendering: optimizeLegibility;
+        -webkit-font-feature-settings: "liga" 1, "kern" 1;
+        font-feature-settings: "liga" 1, "kern" 1;
+    }
+    
+    /* Mobile gesture improvements */
+    .gallery-item,
+    .oil-painting-item,
+    .studio-photo-item {
+        touch-action: manipulation;
+    }
+    
+    /* Mobile viewport optimization */
+    .hero,
+    .about,
+    .gallery,
+    .studio-photography {
+        contain: layout style paint;
+    }
+}

@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jasmine Art House - Heritage in Art</title>
+    <title>Jasmine Art House - Sanatta Miras</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Light Beam Animation -->
+    <!-- Enhanced Circular Light Beam Animation -->
     <div class="light-beam-container">
-        <div class="vertical-light-beam"></div>
+        <div class="circular-light-beam"></div>
         <div class="light-particle particle-1"></div>
         <div class="light-particle particle-2"></div>
         <div class="light-particle particle-3"></div>
@@ -34,19 +36,24 @@
                 <li><a href="studio.html" data-translate="nav-studio">Stüdyo</a></li>
                 <li><a href="contact.html" data-translate="nav-contact">İletişim</a></li>
             </ul>
-
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <div class="floating-light-orbs"></div>
         <div class="hero-content">
             <div class="year">2025</div>
             <h1 class="hero-title">
                 <span data-translate="hero-title">Sanatta</span> <span class="highlight" data-translate="hero-title-highlight">Miras</span>
             </h1>
             <p class="hero-description" data-translate="hero-description">
-                Nesiller boyunca süregelen zanaatkarlığı kutlayın, sizi sanatsal mirasın kalbiyle buluşturan.
+                Nesiller boyunca süregelen zanaatkarlığı kutlayın, sizi sanatsal mirasın kalbiyle buluşturan özel bir deneyim.
             </p>
             <div class="hero-buttons">
                 <a href="gallery.html" class="btn-primary" data-translate="hero-cta">Galeriyi Ziyaret Et</a>
@@ -55,19 +62,19 @@
         <div class="hero-visual">
             <div class="floating-artworks">
                 <div class="artwork-item artwork-1">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1280px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg" alt="The Starry Night" class="floating-artwork-img">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1280px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg" alt="The Starry Night" class="floating-artwork-img" loading="lazy">
                 </div>
                 <div class="artwork-item artwork-2">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/687px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg" alt="Mona Lisa" class="floating-artwork-img">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/687px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg" alt="Mona Lisa" class="floating-artwork-img" loading="lazy">
                 </div>
                 <div class="artwork-item artwork-3">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Monet_-_Impression%2C_Sunrise.jpg/1280px-Monet_-_Impression%2C_Sunrise.jpg" alt="Impression, Sunrise" class="floating-artwork-img">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Monet_-_Impression%2C_Sunrise.jpg/1280px-Monet_-_Impression%2C_Sunrise.jpg" alt="Impression, Sunrise" class="floating-artwork-img" loading="lazy">
                 </div>
                 <div class="artwork-item artwork-4">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/1665_Girl_with_a_Pearl_Earring.jpg/800px-1665_Girl_with_a_Pearl_Earring.jpg" alt="Girl with a Pearl Earring" class="floating-artwork-img">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/1665_Girl_with_a_Pearl_Earring.jpg/800px-1665_Girl_with_a_Pearl_Earring.jpg" alt="Girl with a Pearl Earring" class="floating-artwork-img" loading="lazy">
                 </div>
                 <div class="artwork-item artwork-5">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Edvard_Munch%2C_1893%2C_The_Scream%2C_oil%2C_tempera_and_pastel_on_cardboard%2C_91_x_73_cm%2C_National_Gallery_of_Norway.jpg/800px-Edvard_Munch%2C_1893%2C_The_Scream%2C_oil%2C_tempera_and_pastel_on_cardboard%2C_91_x_73_cm%2C_National_Gallery_of_Norway.jpg" alt="The Scream" class="floating-artwork-img">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Edvard_Munch%2C_1893%2C_The_Scream%2C_oil%2C_tempera_and_pastel_on_cardboard%2C_91_x_73_cm%2C_National_Gallery_of_Norway.jpg/800px-Edvard_Munch%2C_1893%2C_The_Scream%2C_oil%2C_tempera_and_pastel_on_cardboard%2C_91_x_73_cm%2C_National_Gallery_of_Norway.jpg" alt="The Scream" class="floating-artwork-img" loading="lazy">
                 </div>
             </div>
         </div>
@@ -86,16 +93,16 @@
             <div class="about-visual">
                 <div class="scattered-artworks">
                     <div class="artwork-item artwork-6">
-                        <img src="Çizimler/69396175_2595091537264389_3640858034384788996_n.jpg" alt="Drawing 1" class="floating-artwork-img">
+                        <img src="Çizimler Optimized/69396175_2595091537264389_3640858034384788996_n.jpg" alt="Drawing 1" class="floating-artwork-img" loading="lazy">
                     </div>
                     <div class="artwork-item artwork-7">
-                        <img src="Çizimler/72432241_2445188949082244_9065543067191274815_n.jpg" alt="Drawing 2" class="floating-artwork-img">
+                        <img src="Çizimler Optimized/72432241_2445188949082244_9065543067191274815_n.jpg" alt="Drawing 2" class="floating-artwork-img" loading="lazy">
                     </div>
                     <div class="artwork-item artwork-8">
-                        <img src="Çizimler/173182929_1131649517309808_3358326417970726616_n.jpg" alt="Drawing 3" class="floating-artwork-img">
+                        <img src="Çizimler Optimized/173182929_1131649517309808_3358326417970726616_n.jpg" alt="Drawing 3" class="floating-artwork-img" loading="lazy">
                     </div>
                     <div class="artwork-item artwork-9">
-                        <img src="Çizimler/262103182_1800396446812884_7002172921974750575_n.jpg" alt="Drawing 4" class="floating-artwork-img">
+                        <img src="Çizimler Optimized/262103182_1800396446812884_7002172921974750575_n.jpg" alt="Drawing 4" class="floating-artwork-img" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -112,10 +119,10 @@
             <div class="gallery-grid">
                 <div class="gallery-item">
                     <div class="artwork-image">
-                        <img src="Çizimler Optimized/69396175_2595091537264389_3640858034384788996_n.jpg" alt="Çizim 1" class="artwork-img">
+                        <img src="Çizimler Optimized/69396175_2595091537264389_3640858034384788996_n.jpg" alt="Çizim 1" class="artwork-img" loading="lazy">
                     </div>
                     <div class="artwork-info">
-                        <h3>Çizim 1</h3>
+                        <h3>Klasik Çizim</h3>
                         <p>Orijinal Sanat Eseri, 2024</p>
                         <a href="artwork-detail.html?artwork=drawing-1" class="view-artwork" data-translate="view-artwork">Eseri Görüntüle</a>
                     </div>
@@ -123,10 +130,10 @@
                 
                 <div class="gallery-item">
                     <div class="artwork-image">
-                        <img src="Çizimler Optimized/72432241_2445188949082244_9065543067191274815_n.jpg" alt="Çizim 2" class="artwork-img">
+                        <img src="Çizimler Optimized/72432241_2445188949082244_9065543067191274815_n.jpg" alt="Çizim 2" class="artwork-img" loading="lazy">
                     </div>
                     <div class="artwork-info">
-                        <h3>Çizim 2</h3>
+                        <h3>Modern Çizim</h3>
                         <p>Orijinal Sanat Eseri, 2024</p>
                         <a href="artwork-detail.html?artwork=drawing-2" class="view-artwork" data-translate="view-artwork">Eseri Görüntüle</a>
                     </div>
@@ -134,11 +141,11 @@
                 
                 <div class="gallery-item">
                     <div class="artwork-image">
-                        <img src="Çizimler Optimized/173182929_1131649517309808_3358326417970726616_n.jpg" alt="Çizim 3" class="artwork-img">
+                        <img src="Çizimler Optimized/173182929_1131649517309808_3358326417970726616_n.jpg" alt="Çizim 3" class="artwork-img" loading="lazy">
                     </div>
                     <div class="artwork-info">
                         <div class="artwork-info">
-                            <h3>Çizim 3</h3>
+                            <h3>Abstrakt Çizim</h3>
                             <p>Orijinal Sanat Eseri, 2024</p>
                             <a href="artwork-detail.html?artwork=drawing-3" class="view-artwork" data-translate="view-artwork">Eseri Görüntüle</a>
                         </div>
@@ -147,10 +154,10 @@
                 
                 <div class="gallery-item">
                     <div class="artwork-image">
-                        <img src="Çizimler Optimized/262103182_1800396446812884_7002172921974750575_n.jpg" alt="Çizim 4" class="artwork-img">
+                        <img src="Çizimler Optimized/262103182_1800396446812884_7002172921974750575_n.jpg" alt="Çizim 4" class="artwork-img" loading="lazy">
                     </div>
                     <div class="artwork-info">
-                        <h3>Çizim 4</h3>
+                        <h3>Portre Çizimi</h3>
                         <p>Orijinal Sanat Eseri, 2024</p>
                         <a href="artwork-detail.html?artwork=drawing-4" class="view-artwork" data-translate="view-artwork">Eseri Görüntüle</a>
                     </div>
@@ -158,10 +165,10 @@
                 
                 <div class="gallery-item">
                     <div class="artwork-image">
-                        <img src="Çizimler Optimized/282105844_1091405804742649_5302536114031024510_n.jpg" alt="Çizim 5" class="artwork-img">
+                        <img src="Çizimler Optimized/282105844_1091405804742649_5302536114031024510_n.jpg" alt="Çizim 5" class="artwork-img" loading="lazy">
                     </div>
                     <div class="artwork-info">
-                        <h3>Çizim 5</h3>
+                        <h3>Manzara Çizimi</h3>
                         <p>Orijinal Sanat Eseri, 2024</p>
                         <a href="artwork-detail.html?artwork=drawing-5" class="view-artwork" data-translate="view-artwork">Eseri Görüntüle</a>
                     </div>
@@ -169,10 +176,10 @@
                 
                 <div class="gallery-item">
                     <div class="artwork-image">
-                        <img src="Çizimler Optimized/278965981_166623009058422_74768614761505831_n.jpg" alt="Çizim 6" class="artwork-img">
+                        <img src="Çizimler Optimized/278965981_166623009058422_74768614761505831_n.jpg" alt="Çizim 6" class="artwork-img" loading="lazy">
                     </div>
                     <div class="artwork-info">
-                        <h3>Çizim 6</h3>
+                        <h3>Figür Çizimi</h3>
                         <p>Orijinal Sanat Eseri, 2024</p>
                         <a href="artwork-detail.html?artwork=drawing-6" class="view-artwork" data-translate="view-artwork">Eseri Görüntüle</a>
                     </div>
@@ -180,117 +187,26 @@
             </div>
             
             <div class="gallery-cta">
-                <a href="gallery.html" class="btn-primary" data-translate="gallery-cta">Visit Gallery</a>
+                <a href="gallery.html" class="btn-primary" data-translate="gallery-cta">Galeriyi Ziyaret Et</a>
             </div>
         </div>
     </section>
 
-    <!-- Oil Paintings Section -->
-    <section class="oil-paintings">
-        <div class="container">
-            <h2 class="section-title" data-translate="oil-paintings-title">Masterpieces in Oil</h2>
-            <p class="section-description" data-translate="oil-paintings-description">Timeless paintings that capture the essence of artistic heritage</p>
-            <div class="oil-paintings-grid">
-                <div class="oil-painting-item">
-                    <a href="artwork-detail.html?artwork=drawing-1" class="oil-painting-link">
-                        <div class="artwork-image">
-                            <img src="Çizimler Optimized/69396175_2595091537264389_3640858034384788996_n.jpg" alt="Drawing 1" class="artwork-img">
-                        </div>
-                        <div class="artwork-details">
-                            <h3>Drawing 1</h3>
-                            <p>Original Artwork, 2024</p>
-                        </div>
-                    </a>
-                </div>
-                
-                <div class="oil-painting-item">
-                    <a href="artwork-detail.html?artwork=drawing-2" class="oil-painting-link">
-                        <div class="artwork-image">
-                            <img src="Çizimler Optimized/72432241_2445188949082244_9065543067191274815_n.jpg" alt="Drawing 2" class="artwork-img">
-                        </div>
-                        <div class="artwork-details">
-                            <h3>Drawing 2</h3>
-                            <p>Original Artwork, 2024</p>
-                        </div>
-                    </a>
-                </div>
-                
-                <div class="oil-painting-item">
-                    <a href="artwork-detail.html?artwork=drawing-3" class="oil-painting-link">
-                        <div class="artwork-image">
-                            <img src="Çizimler Optimized/173182929_1131649517309808_3358326417970726616_n.jpg" alt="Drawing 3" class="artwork-img">
-                        </div>
-                        <div class="artwork-details">
-                            <h3>Drawing 3</h3>
-                            <p>Original Artwork, 2024</p>
-                        </div>
-                    </a>
-                </div>
-                
-                <div class="oil-painting-item">
-                    <a href="artwork-detail.html?artwork=drawing-4" class="oil-painting-link">
-                        <div class="artwork-image">
-                            <img src="Çizimler Optimized/262103182_1800396446812884_7002172921974750575_n.jpg" alt="Drawing 4" class="artwork-img">
-                        </div>
-                        <div class="artwork-details">
-                            <h3>Drawing 4</h3>
-                            <p>Original Artwork, 2024</p>
-                        </div>
-                    </a>
-                </div>
-                
-                <div class="oil-painting-item">
-                    <a href="artwork-detail.html?artwork=drawing-5" class="oil-painting-link">
-                        <div class="artwork-image">
-                            <img src="Çizimler Optimized/282105844_1091405804742649_5302536114031024510_n.jpg" alt="Drawing 5" class="artwork-img">
-                        </div>
-                        <div class="artwork-details">
-                            <h3>Drawing 5</h3>
-                            <p>Original Artwork, 2024</p>
-                        </div>
-                    </a>
-                </div>
-                
-                <div class="oil-painting-item">
-                    <a href="artwork-detail.html?artwork=drawing-6" class="oil-painting-link">
-                        <div class="artwork-image">
-                            <img src="Çizimler Optimized/278965981_166623009058422_74768614761505831_n.jpg" alt="Drawing 6" class="artwork-img">
-                        </div>
-                        <div class="artwork-details">
-                            <h3>Drawing 6</h3>
-                            <p>Original Artwork, 2024</p>
-                        </div>
-                    </a>
-                </div>
-                
-                <div class="oil-painting-item">
-                    <a href="artwork-detail.html?artwork=drawing-7" class="oil-painting-link">
-                        <div class="artwork-image">
-                            <img src="Çizimler Optimized/468324048_18229445848303043_7951311555860038198_n.jpg" alt="Drawing 7" class="artwork-img">
-                        </div>
-                        <div class="artwork-details">
-                            <h3>Drawing 7</h3>
-                            <p>Original Artwork, 2024</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     <!-- Studio Photography Section -->
     <section id="studio" class="studio-photography">
         <div class="container">
             <h2 class="section-title" data-translate="studio-title">Stüdyo Anları</h2>
-            <p class="section-description" data-translate="studio-description">Perde arkası: yaratıcı süreci yakalama</p>
+            <p class="section-description" data-translate="studio-description">Perde Arkası: Yaratıcı Süreci Yakalama</p>
             <div class="studio-photography-grid">
                 <div class="studio-photo-item">
                     <a href="artwork-detail.html?artwork=studio-1" class="studio-photo-link">
                         <div class="artwork-image">
-                            <img src="Art House Optimized/84348462_1244103439122656_4854646270982173535_n.jpg" alt="Studio Photo 1" class="artwork-img">
+                            <img src="Art House Optimized/84348462_1244103439122656_4854646270982173535_n.jpg" alt="Studio Photo 1" class="artwork-img" loading="lazy">
                         </div>
                         <div class="artwork-details">
-                            <h3>Stüdyo Fotoğrafı 1</h3>
+                            <h3>Yaratıcı Süreç</h3>
                             <p>Art House Seansı, 2024</p>
                         </div>
                     </a>
@@ -299,10 +215,10 @@
                 <div class="studio-photo-item">
                     <a href="artwork-detail.html?artwork=studio-2" class="studio-photo-link">
                         <div class="artwork-image">
-                            <img src="Art House Optimized/101985097_706655780151098_6322115910712367376_n.jpg" alt="Studio Photo 2" class="artwork-img">
+                            <img src="Art House Optimized/101985097_706655780151098_6322115910712367376_n.jpg" alt="Studio Photo 2" class="artwork-img" loading="lazy">
                         </div>
                         <div class="artwork-details">
-                            <h3>Stüdyo Fotoğrafı 2</h3>
+                            <h3>Sanat Atölyesi</h3>
                             <p>Art House Seansı, 2024</p>
                         </div>
                     </a>
@@ -311,10 +227,10 @@
                 <div class="studio-photo-item">
                     <a href="artwork-detail.html?artwork=studio-3" class="studio-photo-link">
                         <div class="artwork-image">
-                            <img src="Art House Optimized/266746404_641421820225995_4152542423772866702_n.jpg" alt="Studio Photo 3" class="artwork-img">
+                            <img src="Art House Optimized/266746404_641421820225995_4152542423772866702_n.jpg" alt="Studio Photo 3" class="artwork-img" loading="lazy">
                         </div>
                         <div class="artwork-details">
-                            <h3>Stüdyo Fotoğrafı 3</h3>
+                            <h3>Çalışma Ortamı</h3>
                             <p>Art House Seansı, 2024</p>
                         </div>
                     </a>
@@ -323,10 +239,10 @@
                 <div class="studio-photo-item">
                     <a href="artwork-detail.html?artwork=studio-4" class="studio-photo-link">
                         <div class="artwork-image">
-                            <img src="Art House Optimized/489029899_18244397203303043_8458864157204107527_n.jpg" alt="Studio Photo 4" class="artwork-img">
+                            <img src="Art House Optimized/489029899_18244397203303043_8458864157204107527_n.jpg" alt="Studio Photo 4" class="artwork-img" loading="lazy">
                         </div>
                         <div class="artwork-details">
-                            <h3>Stüdyo Fotoğrafı 4</h3>
+                            <h3>Sanat Eserleri</h3>
                             <p>Art House Seansı, 2024</p>
                         </div>
                     </a>
@@ -335,10 +251,10 @@
                 <div class="studio-photo-item">
                     <a href="artwork-detail.html?artwork=studio-5" class="studio-photo-link">
                         <div class="artwork-image">
-                            <img src="Art House Optimized/524751663_18255950344303043_5384485881421075244_n.jpg" alt="Studio Photo 5" class="artwork-img">
+                            <img src="Art House Optimized/524751663_18255950344303043_5384485881421075244_n.jpg" alt="Studio Photo 5" class="artwork-img" loading="lazy">
                         </div>
                         <div class="artwork-details">
-                            <h3>Stüdyo Fotoğrafı 5</h3>
+                            <h3>Detay Çalışması</h3>
                             <p>Art House Seansı, 2024</p>
                         </div>
                     </a>
@@ -347,10 +263,10 @@
                 <div class="studio-photo-item">
                     <a href="artwork-detail.html?artwork=studio-6" class="studio-photo-link">
                         <div class="artwork-image">
-                            <img src="Art House Optimized/47582516_407205326757386_3643775761944381717_n.jpg" alt="Studio Photo 6" class="artwork-img">
+                            <img src="Art House Optimized/47582516_407205326757386_3643775761944381717_n.jpg" alt="Studio Photo 6" class="artwork-img" loading="lazy">
                         </div>
                         <div class="artwork-details">
-                            <h3>Stüdyo Fotoğrafı 6</h3>
+                            <h3>Final Dokunuşlar</h3>
                             <p>Art House Seansı, 2024</p>
                         </div>
                     </a>
@@ -375,7 +291,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Jasmine Art House</h3>
-                    <p data-translate="footer-collecting">2010'dan beri Sanat Topluyoruz</p>
+                    <p data-translate="footer-collecting">2010'dan Beri Sanat Topluyoruz</p>
                 </div>
                 
                 <div class="footer-section">
@@ -390,7 +306,7 @@
             </div>
             
             <div class="footer-bottom">
-                <p data-translate="footer-rights">&copy;25 Jasmine Art House – Tüm hakları saklıdır</p>
+                <p data-translate="footer-rights">&copy; 2025 Jasmine Art House – Tüm Hakları Saklıdır</p>
                 <p data-translate="footer-essence">SANATTA MİRASIN ÖZÜ</p>
             </div>
         </div>

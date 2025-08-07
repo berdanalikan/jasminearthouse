@@ -5599,6 +5599,29 @@ html {
         transition: transform 0.1s ease;
     }
     
+    /* Mobile button click improvements */
+    .btn-primary,
+    .btn-secondary,
+    .view-artwork {
+        position: relative;
+        z-index: 1;
+        pointer-events: auto;
+    }
+    
+    /* Ensure buttons are above other elements */
+    .btn-primary,
+    .btn-secondary {
+        z-index: 10;
+    }
+    
+    /* Mobile button focus improvements */
+    .btn-primary:focus,
+    .btn-secondary:focus,
+    .view-artwork:focus {
+        outline: 2px solid var(--accent-color);
+        outline-offset: 2px;
+    }
+    
     /* Mobile image optimization */
     .artwork-img {
         object-fit: cover;
@@ -5618,6 +5641,47 @@ html {
     .oil-painting-item,
     .studio-photo-item {
         touch-action: manipulation;
+    }
+    
+    /* Mobile button touch improvements */
+    .btn-primary,
+    .btn-secondary,
+    .view-artwork {
+        touch-action: manipulation;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        position: relative;
+        z-index: 10;
+        pointer-events: auto;
+        display: inline-block;
+        text-decoration: none;
+    }
+    
+    /* Ensure buttons are clickable */
+    .btn-primary:hover,
+    .btn-secondary:hover,
+    .view-artwork:hover {
+        cursor: pointer;
+    }
+    
+    /* Mobile button active state */
+    .btn-primary:active,
+    .btn-secondary:active,
+    .view-artwork:active {
+        transform: scale(0.95);
+        transition: transform 0.1s ease;
+    }
+    
+    /* Ensure buttons are clickable on mobile */
+    .btn-primary:active,
+    .btn-secondary:active,
+    .view-artwork:active {
+        transform: scale(0.95);
+        transition: transform 0.1s ease;
     }
     
     /* Mobile viewport optimization */

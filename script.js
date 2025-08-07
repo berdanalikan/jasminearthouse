@@ -63,6 +63,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 image.style.transform = 'scale(1)';
             }
         });
+        
+        // Ensure gallery items work on mobile
+        item.addEventListener('click', function(e) {
+            // Allow normal navigation for gallery items
+            return;
+        });
+        
+        // Mobile touch events for gallery items
+        item.addEventListener('touchstart', function(e) {
+            this.style.transform = 'scale(0.98)';
+            this.style.transition = 'transform 0.1s ease';
+        }, { passive: true });
+        
+        item.addEventListener('touchend', function(e) {
+            this.style.transform = 'scale(1)';
+        }, { passive: true });
     });
 
     // Floating artwork parallax effect
@@ -97,6 +113,29 @@ document.addEventListener('DOMContentLoaded', function() {
         button.addEventListener('mouseleave', function() {
             this.style.transform = 'translateY(0)';
         });
+        
+        // Ensure buttons work on mobile
+        button.addEventListener('click', function(e) {
+            // Prevent default only if it's a link button
+            if (this.getAttribute('href')) {
+                // Allow normal navigation for link buttons
+                return;
+            }
+            
+            // For other buttons, ensure they're clickable
+            e.preventDefault();
+            e.stopPropagation();
+        });
+        
+        // Mobile touch events
+        button.addEventListener('touchstart', function(e) {
+            this.style.transform = 'scale(0.95)';
+            this.style.transition = 'transform 0.1s ease';
+        }, { passive: true });
+        
+        button.addEventListener('touchend', function(e) {
+            this.style.transform = 'scale(1)';
+        }, { passive: true });
     });
 
     // Smooth reveal animations
@@ -485,14 +524,23 @@ function initMobileOptimizations() {
         // Optimize touch interactions
         const touchElements = document.querySelectorAll('.gallery-item, .oil-painting-item, .studio-photo-item');
         touchElements.forEach(element => {
-            element.addEventListener('touchstart', function() {
-                this.style.transform = 'scale(0.98)';
-            });
+            // Remove any existing touch event listeners
+            element.removeEventListener('touchstart', handleTouchStart);
+            element.removeEventListener('touchend', handleTouchEnd);
             
-            element.addEventListener('touchend', function() {
-                this.style.transform = 'scale(1)';
-            });
+            // Add new touch event listeners
+            element.addEventListener('touchstart', handleTouchStart, { passive: true });
+            element.addEventListener('touchend', handleTouchEnd, { passive: true });
         });
+        
+        function handleTouchStart() {
+            this.style.transform = 'scale(0.98)';
+            this.style.transition = 'transform 0.1s ease';
+        }
+        
+        function handleTouchEnd() {
+            this.style.transform = 'scale(1)';
+        }
     }
 }
 
@@ -614,15 +662,39 @@ function initTouchFeedback() {
         const touchElements = document.querySelectorAll('.btn-primary, .btn-secondary, .view-artwork');
         
         touchElements.forEach(element => {
-            element.addEventListener('touchstart', function() {
-                this.style.transform = 'scale(0.95)';
-                this.style.transition = 'transform 0.1s ease';
-            });
+            // Remove any existing touch event listeners
+            element.removeEventListener('touchstart', handleTouchStart);
+            element.removeEventListener('touchend', handleTouchEnd);
+            element.removeEventListener('click', handleClick);
             
-            element.addEventListener('touchend', function() {
-                this.style.transform = 'scale(1)';
-            });
+            // Add new event listeners
+            element.addEventListener('touchstart', handleTouchStart, { passive: true });
+            element.addEventListener('touchend', handleTouchEnd, { passive: true });
+            element.addEventListener('click', handleClick);
         });
+        
+        function handleTouchStart(e) {
+            this.style.transform = 'scale(0.95)';
+            this.style.transition = 'transform 0.1s ease';
+        }
+        
+        function handleTouchEnd(e) {
+            this.style.transform = 'scale(1)';
+        }
+        
+        function handleClick(e) {
+            // Ensure click events work properly on mobile
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Handle different button types
+            if (this.classList.contains('btn-primary') || this.classList.contains('btn-secondary')) {
+                const href = this.getAttribute('href');
+                if (href) {
+                    window.location.href = href;
+                }
+            }
+        }
     }
 }
 

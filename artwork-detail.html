@@ -1,13 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Eser Detayı - Jasmine Art House. Sanatçı, yıl, teknik, boyutlar ve tarihi bağlam ile ayrıntılı eser sayfası.">
+    <meta property="og:title" content="Eser Detayı - Jasmine Art House">
+    <meta property="og:description" content="Seçili eserin detaylarını keşfedin.">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="tr_TR">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="artwork-detail.html">
+    <link rel="icon" href="/favicon.ico">
     <title>Eser Detayı - Jasmine Art House</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+      :focus-visible { outline: 2px solid #ff6b35; outline-offset: 2px; }
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { animation: none !important; transition: none !important; }
+      }
+      .artwork-image img, .related-image img, .thumbnail-img, .artwork-detail-image, .related-img { aspect-ratio: 4/3; width: 100%; height: auto; }
+    </style>
 </head>
 <body>
     <!-- Light Beam Animation -->
@@ -154,7 +169,7 @@
             <div class="related-grid">
                 <div class="related-item">
                     <div class="related-image">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/687px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg" alt="Mona Lisa" class="related-img" loading="lazy">
+                        <img src="cizimler-optimized/69396175_2595091537264389_3640858034384788996_n.jpg" alt="Mona Lisa" class="related-img" loading="lazy">
                     </div>
                     <div class="related-info">
                         <h3>Mona Lisa</h3>
@@ -165,7 +180,7 @@
                 
                 <div class="related-item">
                     <div class="related-image">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/1665_Girl_with_a_Pearl_Earring.jpg/800px-1665_Girl_with_a_Pearl_Earring.jpg" alt="Girl with a Pearl Earring" class="related-img" loading="lazy">
+                        <img src="cizimler-optimized/72432241_2445188949082244_9065543067191274815_n.jpg" alt="Girl with a Pearl Earring" class="related-img" loading="lazy">
                     </div>
                     <div class="related-info">
                         <h3>Girl with a Pearl Earring</h3>
@@ -176,7 +191,7 @@
                 
                 <div class="related-item">
                     <div class="related-image">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1280px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg" alt="The Starry Night" class="related-img" loading="lazy">
+                        <img src="cizimler-optimized/173182929_1131649517309808_3358326417970726616_n.jpg" alt="The Starry Night" class="related-img" loading="lazy">
                     </div>
                     <div class="related-info">
                         <h3>The Starry Night</h3>
@@ -234,7 +249,7 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <script>
         // Artwork data
         const artworkData = {

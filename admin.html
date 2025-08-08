@@ -1,8 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Jasmine Art House Admin Paneli - İçerik ve eser yönetimi (demo)">
+    <meta property="og:title" content="Admin Paneli - Jasmine Art House">
+    <meta property="og:description" content="İçerik yönetimi (demo)">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="tr_TR">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="admin.html">
+    <link rel="icon" href="/favicon.ico">
     <title>Admin Paneli - Jasmine Art House</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -25,7 +34,7 @@
     <nav class="admin-navbar">
         <div class="admin-nav-container">
             <div class="admin-nav-logo">
-                <a href="index.html" style="text-decoration: none; color: inherit;">
+                <a href="index.html" class="unstyled-link">
                     <h2>Jasmine Art House - Admin Paneli</h2>
                 </a>
             </div>
@@ -212,33 +221,33 @@
                 <div class="tab-content active" id="homepage">
                     <form class="content-form">
                         <div class="form-group">
-                            <label>Hero Title</label>
-                            <input type="text" id="hero-title" value="Create Masterpiece" class="form-input">
+                            <label for="hero-title">Hero Title</label>
+                            <input type="text" id="hero-title" value="Create Masterpiece" class="form-input" placeholder="Hero başlığı" title="Hero başlığı">
                         </div>
                         
                         <div class="form-group">
-                            <label>Hero Subtitle</label>
-                            <textarea id="hero-subtitle" class="form-textarea">Discover the timeless beauty of classical art through our curated collection of masterpieces.</textarea>
+                            <label for="hero-subtitle">Hero Subtitle</label>
+                            <textarea id="hero-subtitle" class="form-textarea" placeholder="Hero alt başlığı" title="Hero alt başlığı">Discover the timeless beauty of classical art through our curated collection of masterpieces.</textarea>
                         </div>
                         
                         <div class="form-group">
-                            <label>About Section Title</label>
-                            <input type="text" id="about-title" value="A Journey Through Time" class="form-input">
+                            <label for="about-title">About Section Title</label>
+                            <input type="text" id="about-title" value="A Journey Through Time" class="form-input" placeholder="Hakkımızda bölüm başlığı" title="Hakkımızda bölüm başlığı">
                         </div>
                         
                         <div class="form-group">
-                            <label>About Section Description</label>
-                            <textarea id="about-description" class="form-textarea">Immerse yourself in the rich tapestry of artistic expression, where each brushstroke tells a story and every canvas holds a world of emotion.</textarea>
+                            <label for="about-description">About Section Description</label>
+                            <textarea id="about-description" class="form-textarea" placeholder="Hakkımızda açıklaması" title="Hakkımızda açıklaması">Immerse yourself in the rich tapestry of artistic expression, where each brushstroke tells a story and every canvas holds a world of emotion.</textarea>
                         </div>
                         
                         <div class="form-group">
-                            <label>Gallery Section Title</label>
-                            <input type="text" id="gallery-title" value="Our Collection" class="form-input">
+                            <label for="gallery-title">Gallery Section Title</label>
+                            <input type="text" id="gallery-title" value="Our Collection" class="form-input" placeholder="Galeri bölüm başlığı" title="Galeri bölüm başlığı">
                         </div>
                         
                         <div class="form-group">
-                            <label>Gallery Section Description</label>
-                            <textarea id="gallery-description" class="form-textarea">Explore our carefully curated selection of masterpieces, each representing a unique moment in the evolution of artistic expression.</textarea>
+                            <label for="gallery-description">Gallery Section Description</label>
+                            <textarea id="gallery-description" class="form-textarea" placeholder="Galeri açıklaması" title="Galeri açıklaması">Explore our carefully curated selection of masterpieces, each representing a unique moment in the evolution of artistic expression.</textarea>
                         </div>
                         
                         <div class="form-actions">
@@ -251,28 +260,28 @@
                 <div class="tab-content" id="about">
                     <form class="content-form">
                         <div class="form-group">
-                            <label>About Hero Title</label>
-                            <input type="text" id="about-hero-title" value="Our Story" class="form-input">
+                            <label for="about-hero-title">About Hero Title</label>
+                            <input type="text" id="about-hero-title" value="Our Story" class="form-input" placeholder="Hakkımızda hero başlığı" title="Hakkımızda hero başlığı">
                         </div>
                         
                         <div class="form-group">
-                            <label>Mission Title</label>
-                            <input type="text" id="mission-title" value="Our Mission" class="form-input">
+                            <label for="mission-title">Mission Title</label>
+                            <input type="text" id="mission-title" value="Our Mission" class="form-input" placeholder="Misyon başlığı" title="Misyon başlığı">
                         </div>
                         
                         <div class="form-group">
-                            <label>Mission Description</label>
-                            <textarea id="mission-description" class="form-textarea">To preserve and celebrate the rich heritage of classical art, making masterpieces accessible to art enthusiasts worldwide.</textarea>
+                            <label for="mission-description">Mission Description</label>
+                            <textarea id="mission-description" class="form-textarea" placeholder="Misyon açıklaması" title="Misyon açıklaması">To preserve and celebrate the rich heritage of classical art, making masterpieces accessible to art enthusiasts worldwide.</textarea>
                         </div>
                         
                         <div class="form-group">
-                            <label>History Title</label>
-                            <input type="text" id="history-title" value="Our History" class="form-input">
+                            <label for="history-title">History Title</label>
+                            <input type="text" id="history-title" value="Our History" class="form-input" placeholder="Tarihçe başlığı" title="Tarihçe başlığı">
                         </div>
                         
                         <div class="form-group">
-                            <label>History Description</label>
-                            <textarea id="history-description" class="form-textarea">Founded with a passion for classical art, Jasmine Art House has been curating exceptional collections for over two decades.</textarea>
+                            <label for="history-description">History Description</label>
+                            <textarea id="history-description" class="form-textarea" placeholder="Tarihçe açıklaması" title="Tarihçe açıklaması">Founded with a passion for classical art, Jasmine Art House has been curating exceptional collections for over two decades.</textarea>
                         </div>
                         
                         <div class="form-actions">
@@ -285,23 +294,23 @@
                 <div class="tab-content" id="gallery">
                     <form class="content-form">
                         <div class="form-group">
-                            <label>Gallery Hero Title</label>
-                            <input type="text" id="gallery-hero-title" value="Our Collection" class="form-input">
+                            <label for="gallery-hero-title">Gallery Hero Title</label>
+                            <input type="text" id="gallery-hero-title" value="Our Collection" class="form-input" placeholder="Galeri hero başlığı" title="Galeri hero başlığı">
                         </div>
                         
                         <div class="form-group">
-                            <label>Gallery Hero Description</label>
-                            <textarea id="gallery-hero-description" class="form-textarea">Explore our carefully curated selection of masterpieces from different periods and artistic movements.</textarea>
+                            <label for="gallery-hero-description">Gallery Hero Description</label>
+                            <textarea id="gallery-hero-description" class="form-textarea" placeholder="Galeri hero açıklaması" title="Galeri hero açıklaması">Explore our carefully curated selection of masterpieces from different periods and artistic movements.</textarea>
                         </div>
                         
                         <div class="form-group">
-                            <label>Gallery Info Title</label>
-                            <input type="text" id="gallery-info-title" value="About Our Collection" class="form-input">
+                            <label for="gallery-info-title">Gallery Info Title</label>
+                            <input type="text" id="gallery-info-title" value="About Our Collection" class="form-input" placeholder="Galeri bilgi başlığı" title="Galeri bilgi başlığı">
                         </div>
                         
                         <div class="form-group">
-                            <label>Gallery Info Description</label>
-                            <textarea id="gallery-info-description" class="form-textarea">Our collection represents the evolution of artistic expression across different periods and movements.</textarea>
+                            <label for="gallery-info-description">Gallery Info Description</label>
+                            <textarea id="gallery-info-description" class="form-textarea" placeholder="Galeri bilgi açıklaması" title="Galeri bilgi açıklaması">Our collection represents the evolution of artistic expression across different periods and movements.</textarea>
                         </div>
                         
                         <div class="form-actions">
@@ -314,28 +323,28 @@
                 <div class="tab-content" id="contact">
                     <form class="content-form">
                         <div class="form-group">
-                            <label>Contact Hero Title</label>
-                            <input type="text" id="contact-hero-title" value="Get In Touch" class="form-input">
+                            <label for="contact-hero-title">Contact Hero Title</label>
+                            <input type="text" id="contact-hero-title" value="Get In Touch" class="form-input" placeholder="İletişim hero başlığı" title="İletişim hero başlığı">
                         </div>
                         
                         <div class="form-group">
-                            <label>Contact Hero Description</label>
-                            <textarea id="contact-hero-description" class="form-textarea">We'd love to hear from you. Send us a message and we'll respond as soon as possible.</textarea>
+                            <label for="contact-hero-description">Contact Hero Description</label>
+                            <textarea id="contact-hero-description" class="form-textarea" placeholder="İletişim hero açıklaması" title="İletişim hero açıklaması">We'd love to hear from you. Send us a message and we'll respond as soon as possible.</textarea>
                         </div>
                         
                         <div class="form-group">
-                            <label>Contact Address</label>
-                            <textarea id="contact-address" class="form-textarea">123 Art Street, Gallery District, New York, NY 10001</textarea>
+                            <label for="contact-address">Contact Address</label>
+                            <textarea id="contact-address" class="form-textarea" placeholder="Adres" title="Adres">123 Art Street, Gallery District, New York, NY 10001</textarea>
                         </div>
                         
                         <div class="form-group">
-                            <label>Contact Email</label>
-                            <input type="email" id="contact-email" value="info@jasminearthouse.com" class="form-input">
+                            <label for="contact-email">Contact Email</label>
+                            <input type="email" id="contact-email" value="info@jasminearthouse.com" class="form-input" placeholder="E-posta" title="E-posta">
                         </div>
                         
                         <div class="form-group">
-                            <label>Contact Phone</label>
-                            <input type="tel" id="contact-phone" value="+1 (555) 123-4567" class="form-input">
+                            <label for="contact-phone">Contact Phone</label>
+                            <input type="tel" id="contact-phone" value="+1 (555) 123-4567" class="form-input" placeholder="Telefon" title="Telefon">
                         </div>
                         
                         <div class="form-actions">
@@ -360,9 +369,11 @@
                     </button>
                 </div>
                 
-                <div class="artwork-filters">
-                    <input type="text" placeholder="Search artworks..." class="search-input">
-                    <select class="filter-select">
+                        <div class="artwork-filters">
+                    <label for="admin-search" class="visually-hidden">Search artworks</label>
+                    <input type="text" id="admin-search" placeholder="Search artworks..." class="search-input" title="Sanat eserlerinde ara">
+                    <label for="admin-filter" class="visually-hidden">Filter by category</label>
+                    <select id="admin-filter" class="filter-select" title="Kategori filtresi">
                         <option value="">All Categories</option>
                         <option value="renaissance">Renaissance</option>
                         <option value="impressionism">Impressionism</option>
@@ -433,18 +444,18 @@
                         <h3>General Settings</h3>
                         <form class="settings-form">
                             <div class="form-group">
-                                <label>Website Title</label>
-                                <input type="text" value="Jasmine Art House" class="form-input">
+                                <label for="settings-website-title">Website Title</label>
+                                <input id="settings-website-title" type="text" value="Jasmine Art House" class="form-input" placeholder="Site başlığı" title="Site başlığı">
                             </div>
                             
                             <div class="form-group">
-                                <label>Website Description</label>
-                                <textarea class="form-textarea">Preserving artistic heritage for future generations.</textarea>
+                                <label for="settings-website-description">Website Description</label>
+                                <textarea id="settings-website-description" class="form-textarea" placeholder="Site açıklaması" title="Site açıklaması">Preserving artistic heritage for future generations.</textarea>
                             </div>
                             
                             <div class="form-group">
-                                <label>Contact Email</label>
-                                <input type="email" value="info@jasminearthouse.com" class="form-input">
+                                <label for="settings-contact-email">Contact Email</label>
+                                <input id="settings-contact-email" type="email" value="info@jasminearthouse.com" class="form-input" placeholder="E-posta" title="E-posta">
                             </div>
                             
                             <div class="form-actions">
@@ -473,39 +484,39 @@
             </div>
             
             <form class="artwork-form">
-                <div class="form-row">
+                        <div class="form-row">
                     <div class="form-group">
-                        <label>Artwork Title</label>
-                        <input type="text" id="artwork-title" class="form-input" required>
+                        <label for="artwork-title">Artwork Title</label>
+                        <input type="text" id="artwork-title" class="form-input" required placeholder="Artwork title" title="Artwork title">
                     </div>
                     
                     <div class="form-group">
-                        <label>Artist</label>
-                        <input type="text" id="artwork-artist" class="form-input" required>
+                        <label for="artwork-artist">Artist</label>
+                        <input type="text" id="artwork-artist" class="form-input" required placeholder="Artist" title="Artist">
                     </div>
                 </div>
                 
-                <div class="form-row">
+                        <div class="form-row">
                     <div class="form-group">
-                        <label>Year</label>
-                        <input type="text" id="artwork-year" class="form-input" required>
+                        <label for="artwork-year">Year</label>
+                        <input type="text" id="artwork-year" class="form-input" required placeholder="Year" title="Year">
                     </div>
                     
                     <div class="form-group">
-                        <label>Medium</label>
-                        <input type="text" id="artwork-medium" class="form-input" required>
+                        <label for="artwork-medium">Medium</label>
+                        <input type="text" id="artwork-medium" class="form-input" required placeholder="Medium" title="Medium">
                     </div>
                 </div>
                 
-                <div class="form-row">
+                        <div class="form-row">
                     <div class="form-group">
-                        <label>Dimensions</label>
-                        <input type="text" id="artwork-dimensions" class="form-input" required>
+                        <label for="artwork-dimensions">Dimensions</label>
+                        <input type="text" id="artwork-dimensions" class="form-input" required placeholder="Dimensions" title="Dimensions">
                     </div>
                     
                     <div class="form-group">
-                        <label>Style</label>
-                        <select id="artwork-style" class="form-select" required>
+                        <label for="artwork-style">Style</label>
+                        <select id="artwork-style" class="form-select" required title="Style">
                             <option value="">Select Style</option>
                             <option value="Renaissance">Renaissance</option>
                             <option value="Impressionism">Impressionism</option>
@@ -516,27 +527,27 @@
                 </div>
                 
                 <div class="form-group">
-                    <label>Location</label>
-                    <input type="text" id="artwork-location" class="form-input" required>
+                    <label for="artwork-location">Location</label>
+                    <input type="text" id="artwork-location" class="form-input" required placeholder="Location" title="Location">
                 </div>
                 
                 <div class="form-group">
-                    <label>Description</label>
-                    <textarea id="artwork-description" class="form-textarea" rows="4" required></textarea>
+                    <label for="artwork-description">Description</label>
+                    <textarea id="artwork-description" class="form-textarea" rows="4" required placeholder="Description" title="Description"></textarea>
                 </div>
                 
                 <div class="form-group">
-                    <label>Historical Context</label>
-                    <textarea id="artwork-history" class="form-textarea" rows="4" required></textarea>
+                    <label for="artwork-history">Historical Context</label>
+                    <textarea id="artwork-history" class="form-textarea" rows="4" required placeholder="Historical context" title="Historical context"></textarea>
                 </div>
                 
                 <div class="form-group">
-                    <label>Technique & Analysis</label>
-                    <textarea id="artwork-technique" class="form-textarea" rows="4" required></textarea>
+                    <label for="artwork-technique">Technique & Analysis</label>
+                    <textarea id="artwork-technique" class="form-textarea" rows="4" required placeholder="Technique & analysis" title="Technique & analysis"></textarea>
                 </div>
                 
                 <div class="form-group">
-                    <label>Upload Image</label>
+                    <label for="artwork-image-file">Upload Image</label>
                     <div class="image-upload">
                         <input type="file" id="artwork-image-file" class="form-file" accept="image/*">
                         <div class="upload-area">
@@ -585,37 +596,37 @@
             <form class="artwork-form" id="editArtworkForm">
                 <div class="form-row">
                     <div class="form-group">
-                        <label>Artwork Title</label>
-                        <input type="text" id="edit-artwork-title" class="form-input" required>
+                        <label for="edit-artwork-title">Artwork Title</label>
+                        <input type="text" id="edit-artwork-title" class="form-input" required placeholder="Artwork title" title="Artwork title">
                     </div>
                     
                     <div class="form-group">
-                        <label>Artist</label>
-                        <input type="text" id="edit-artwork-artist" class="form-input" required>
+                        <label for="edit-artwork-artist">Artist</label>
+                        <input type="text" id="edit-artwork-artist" class="form-input" required placeholder="Artist" title="Artist">
                     </div>
                 </div>
                 
                 <div class="form-row">
                     <div class="form-group">
-                        <label>Year</label>
-                        <input type="text" id="edit-artwork-year" class="form-input" required>
+                        <label for="edit-artwork-year">Year</label>
+                        <input type="text" id="edit-artwork-year" class="form-input" required placeholder="Year" title="Year">
                     </div>
                     
                     <div class="form-group">
-                        <label>Medium</label>
-                        <input type="text" id="edit-artwork-medium" class="form-input" required>
+                        <label for="edit-artwork-medium">Medium</label>
+                        <input type="text" id="edit-artwork-medium" class="form-input" required placeholder="Medium" title="Medium">
                     </div>
                 </div>
                 
                 <div class="form-row">
                     <div class="form-group">
-                        <label>Dimensions</label>
-                        <input type="text" id="edit-artwork-dimensions" class="form-input" required>
+                        <label for="edit-artwork-dimensions">Dimensions</label>
+                        <input type="text" id="edit-artwork-dimensions" class="form-input" required placeholder="Dimensions" title="Dimensions">
                     </div>
                     
                     <div class="form-group">
-                        <label>Style</label>
-                        <select id="edit-artwork-style" class="form-select" required>
+                        <label for="edit-artwork-style">Style</label>
+                        <select id="edit-artwork-style" class="form-select" required title="Style">
                             <option value="">Select Style</option>
                             <option value="Renaissance">Renaissance</option>
                             <option value="Impressionism">Impressionism</option>
@@ -626,23 +637,23 @@
                 </div>
                 
                 <div class="form-group">
-                    <label>Location</label>
-                    <input type="text" id="edit-artwork-location" class="form-input" required>
+                    <label for="edit-artwork-location">Location</label>
+                    <input type="text" id="edit-artwork-location" class="form-input" required placeholder="Location" title="Location">
                 </div>
                 
                 <div class="form-group">
-                    <label>Description</label>
-                    <textarea id="edit-artwork-description" class="form-textarea" rows="4" required></textarea>
+                    <label for="edit-artwork-description">Description</label>
+                    <textarea id="edit-artwork-description" class="form-textarea" rows="4" required placeholder="Description" title="Description"></textarea>
                 </div>
                 
                 <div class="form-group">
-                    <label>Historical Context</label>
-                    <textarea id="edit-artwork-history" class="form-textarea" rows="4" required></textarea>
+                    <label for="edit-artwork-history">Historical Context</label>
+                    <textarea id="edit-artwork-history" class="form-textarea" rows="4" required placeholder="Historical context" title="Historical context"></textarea>
                 </div>
                 
                 <div class="form-group">
-                    <label>Technique & Analysis</label>
-                    <textarea id="edit-artwork-technique" class="form-textarea" rows="4" required></textarea>
+                    <label for="edit-artwork-technique">Technique & Analysis</label>
+                    <textarea id="edit-artwork-technique" class="form-textarea" rows="4" required placeholder="Technique & analysis" title="Technique & analysis"></textarea>
                 </div>
                 
                 <div class="form-group">
@@ -653,7 +664,7 @@
                 </div>
                 
                 <div class="form-group">
-                    <label>Upload New Image</label>
+                    <label for="edit-artwork-image-file">Upload New Image</label>
                     <div class="image-upload">
                         <input type="file" id="edit-artwork-image-file" class="form-file" accept="image/*">
                         <div class="upload-area">
@@ -686,7 +697,7 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <script>
         // Artwork data (same as in artwork-detail.html)
         const artworkData = {

@@ -81,8 +81,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }, { passive: true });
     });
 
-    // Floating artwork parallax effect
-    const floatingArtworks = document.querySelectorAll('.floating-artworks .artwork-item, .scattered-artworks .artwork-item');
+    // Floating artwork parallax effect (exclude scattered artworks to keep layout stable)
+    const floatingArtworks = document.querySelectorAll('.floating-artworks .artwork-item');
     window.addEventListener('scroll', function() {
         const scrolled = window.pageYOffset;
         floatingArtworks.forEach((artwork, index) => {
@@ -92,16 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Mouse move effect for floating artworks (removed frame shifting)
-    document.addEventListener('mousemove', function(e) {
-        const artworks = document.querySelectorAll('.floating-artworks .artwork-item, .scattered-artworks .artwork-item');
-        artworks.forEach((artwork, index) => {
-            const speed = 0.01 + (index * 0.002);
-            const x = (e.clientX * speed);
-            const y = (e.clientY * speed);
-            artwork.style.transform = `translate(${x}px, ${y}px)`;
-        });
-    });
+    // Mouse move effect removed to avoid transform conflicts with scroll animations
 
     // Button hover effects
     const buttons = document.querySelectorAll('.btn-primary, .btn-secondary');
@@ -276,114 +267,7 @@ function initLazyLoading() {
     });
 }
 
-// Language data removed - site is now Turkish only
-        'contact-hero-description': 'Bizimle iletişime geçin ve sanatsal yolculuğumuza katılın',
-        'contact-form-title': 'Mesaj Gönderin',
-        'contact-form-name': 'Adınız',
-        'contact-form-email': 'E-posta',
-        'contact-form-message': 'Mesajınız',
-        'contact-form-send': 'Gönder',
-        'contact-info-title': 'İletişim Bilgileri',
-        'contact-address': 'Adres',
-        'contact-phone': 'Telefon',
-        'contact-email': 'E-posta',
-        'contact-hours': 'Çalışma Saatleri',
-        
-        // Footer
-        'footer-collecting': '2010\'dan beri Sanat Topluyoruz',
-        'footer-navigation': 'Navigasyon',
-        'footer-rights': 'Tüm hakları saklıdır',
-        'footer-essence': 'SANATTA MİRASIN ÖZÜ',
-        'view-artwork': 'Eseri Görüntüle'
-    },
-    en: {
-        // Navigation
-        'nav-home': 'Home',
-        'nav-about': 'About',
-        'nav-gallery': 'Gallery',
-        'nav-studio': 'Studio',
-        'nav-contact': 'Contact',
-        
-        // Home Page
-        'hero-title': 'Heritage',
-        'hero-title-highlight': 'In Art',
-        'hero-description': 'Celebrate the craftsmanship that has transcended generations, connecting you with the heart of artistic heritage.',
-        'hero-cta': 'Visit Gallery',
-        'journey-title': 'A Journey Through Time',
-        'journey-description': 'Step into a world where tradition meets artistry. Here, you are invited to explore a personal collection of artworks, where each piece reveals layers of artistic history, meticulous craftsmanship, and the enduring beauty of heritage.',
-        'about-cta': 'About Us',
-        'oil-paintings-title': 'Masterpieces in Oil',
-        'oil-paintings-description': 'Timeless paintings that capture the essence of artistic heritage',
-        'gallery-title': 'Impressions Of Heritage',
-        'gallery-subtitle': 'Timeless Masterpieces',
-        'gallery-description': 'Each piece exhibited at Jasmine Art House embodies both the visual allure and the spirit of artistic heritage.',
-        'gallery-cta': 'Visit Gallery',
-        'studio-title': 'Studio Moments',
-        'studio-description': 'Behind the scenes: capturing the creative process and artistic journey',
-        'contact-title': 'Get in Touch',
-        'contact-description': 'Our mission is to preserve and showcase artistic heritage, inviting visitors to engage with the rich beauty of tradition through a contemporary platform.',
-        
-        // Gallery Page
-        'gallery-hero-title': 'Our Collection',
-        'gallery-hero-description': 'Timeless masterpieces and artistic excellence',
-        'gallery-filters-all': 'All',
-        'gallery-filters-oil': 'Oil Paintings',
-        'gallery-filters-drawings': 'Drawings',
-        'gallery-filters-studio': 'Studio',
-        
-        // About Page
-        'about-hero-title': 'About Us',
-        'about-hero-description': 'Guardians of artistic heritage and sustainers of tradition',
-        'mission-title': 'Our Mission',
-        'mission-description': 'To preserve artistic heritage and pass it on to future generations',
-        'history-title': 'Legacy of Excellence',
-        'history-description': 'Our pursuit of artistic excellence over the years',
-        'values-title': 'Our Values',
-        'values-description': 'Artistic excellence and traditional values',
-        'team-title': 'Meet Our Team',
-        'team-description': 'Passionate professionals who share our artistic vision',
-        
-        // Studio Page
-        'studio-hero-title': 'Studio',
-        'studio-hero-title-highlight': 'Moments',
-        'studio-hero-description': 'Behind the scenes: capturing the creative process and artistic journey in our studio.',
-        'studio-gallery-title': 'Behind the Scenes',
-        'studio-gallery-description': 'Exploring the creative process and studio environment',
-        'studio-info-title': 'Our Studio',
-        'studio-info-description': 'Our studio is a creative sanctuary where artistic visions come to life. Every corner tells a story of passion, dedication, and the endless pursuit of artistic excellence.',
-        'feature-1-title': 'Creative Environment',
-        'feature-1-desc': 'A space designed to inspire and nurture artistic expression',
-        'feature-2-title': 'Professional Equipment',
-        'feature-2-desc': 'State-of-the-art tools and materials for the best results',
-        'feature-3-title': 'Artistic Process',
-        'feature-3-desc': 'Documenting the journey from concept to completion',
-        
-        // Contact Page
-        'contact-hero-title': 'Get in Touch',
-        'contact-hero-description': 'Contact us and join our artistic journey',
-        'contact-form-title': 'Send a Message',
-        'contact-form-name': 'Your Name',
-        'contact-form-email': 'Email',
-        'contact-form-message': 'Your Message',
-        'contact-form-send': 'Send',
-        'contact-info-title': 'Contact Information',
-        'contact-address': 'Address',
-        'contact-phone': 'Phone',
-        'contact-email': 'Email',
-        'contact-hours': 'Opening Hours',
-        
-        // Footer
-        'footer-collecting': 'Collecting Arts since ©2010',
-        'footer-navigation': 'Navigation',
-        'footer-rights': 'All rights reserved',
-        'footer-essence': 'THE ESSENCE OF HERITAGE IN ART',
-        'view-artwork': 'View Artwork'
-    }
-};
-
-let currentLanguage = 'tr';
-
-// Language switching functionality removed - site is now Turkish only
+// Language features removed – site is Turkish only
 
 // Initialize page functionality
 document.addEventListener('DOMContentLoaded', () => {
@@ -559,15 +443,23 @@ function initEnhancedLazyLoading() {
                     imageContainer.classList.add('loading');
                 }
                 
+                // If already loaded (from cache), mark as loaded immediately
+                if (img.complete && img.naturalWidth > 0) {
+                    img.classList.add('loaded');
+                    img.style.opacity = '1';
+                    if (imageContainer) imageContainer.classList.remove('loading');
+                    observer.unobserve(img);
+                    return;
+                }
+
                 // Load image with error handling
                 img.addEventListener('load', function() {
                     this.classList.add('loaded');
                     this.style.opacity = '1';
-                    
                     if (imageContainer) {
                         imageContainer.classList.remove('loading');
                     }
-                });
+                }, { once: true });
                 
                 img.addEventListener('error', function() {
                     // Show placeholder on error
@@ -597,7 +489,15 @@ function initEnhancedLazyLoading() {
     });
     
     images.forEach(img => {
-        imageObserver.observe(img);
+        // Ensure images already loaded are visible
+        if (img.complete && img.naturalWidth > 0) {
+            img.classList.add('loaded');
+            img.style.opacity = '1';
+            const imageContainer = img.closest('.artwork-image');
+            if (imageContainer) imageContainer.classList.remove('loading');
+        } else {
+            imageObserver.observe(img);
+        }
     });
 }
 
